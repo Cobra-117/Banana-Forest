@@ -35,13 +35,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    Vector3Int distanceMapToTileMap(Vector3Int coords)
-    {
-        coords.x += 1 + tilemap.origin.x;
-        coords.y += 1 + tilemap.origin.y;
-        return coords;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -67,4 +60,19 @@ public class Enemy : MonoBehaviour
         }
         //Debug.Log("x: " + cellpos.x + "y: " + cellpos.y);   
     }
+
+    Vector3Int distanceMapToTileMap(Vector3Int coords)
+    {
+        coords.x += 1 + tilemap.origin.x;
+        coords.y += 1 + tilemap.origin.y;
+        return coords;
+    }
+
+    Vector3Int TileMapToDistanceMap(Vector3Int coords)
+    {
+        coords.x -= 1 + tilemap.origin.x;
+        coords.y -= 1 + tilemap.origin.y;
+        return coords;
+    }
 }
+
