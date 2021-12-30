@@ -100,8 +100,28 @@ public class Enemy : MonoBehaviour
                     Debug.Log("dist map " + i + " " + j + ""
                         + "is indexed");
 
+                    /*indexing x -1 tile*/
+                    tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i - 1, j)));
+                    if (tile != null && tile.name == "dirt" && distanceMap[j, i - 1] == 9999)
+                    {
+                        distanceMap[j, i - 1] = curdist;
+                        Debug.Log("indexed x - 1");
+                    }
+
+                    /*indexing x + 1 tile*/
+                    tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i + 1, j)));
+                    if (tile != null && tile.name == "dirt" && distanceMap[j, i + 1] == 9999)
+                        distanceMap[j, i + 1] = curdist;
+
                     /*indexing y -1 tile*/
-                    //distanceMap[]
+                    tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j - 1)));
+                    if (tile != null && tile.name == "dirt" && distanceMap[j - 1, i] == 9999)
+                        distanceMap[j - 1, i] = curdist;
+
+                    /*indexing y + 1 tile*/
+                    tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j + 1)));
+                    if (tile != null && tile.name == "dirt" && distanceMap[j + 1, i] == 9999)
+                        distanceMap[j + 1, i] = curdist;
                     //TileBase tile = tilemap.GetTile<TileBase>(distanceMap);
                 }
             }
