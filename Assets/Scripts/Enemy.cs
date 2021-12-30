@@ -22,14 +22,12 @@ public class Enemy : MonoBehaviour
             {
                 //Debug.Log("i: " + i.ToString());
                 //Debug.Log("getting x: " + (tilemap.origin.x + i + 1).ToString() + "y: " + (tilemap.origin.y + j + 1).ToString());
-                TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector3Int(i, j, 0)));
+                TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
                 if (tile.name == "dirt")
                 {
                     Debug.Log("getting x: " + (tilemap.origin.x + i + 1).ToString() + "y: " + (tilemap.origin.y + j + 1).ToString());
                     Debug.Log(i + " " + j + " " + "dirt");
                 }
-                /*else
-                    Debug.Log(i + " " + j + " " + "grass");*/
                 distanceMap[j, i] = 9999;
             }
         }
@@ -61,18 +59,43 @@ public class Enemy : MonoBehaviour
         //Debug.Log("x: " + cellpos.x + "y: " + cellpos.y);   
     }
 
-    Vector3Int distanceMapToTileMap(Vector3Int coords)
+    Vector3Int distanceMapToTileMap(Vector2Int coords)
     {
-        coords.x += 1 + tilemap.origin.x;
-        coords.y += 1 + tilemap.origin.y;
-        return coords;
+        Vector3Int res = new Vector3Int(0, 0, 0);
+        res.x = coords.x + 1 + tilemap.origin.x;
+        res.y = coords.y + 1 + tilemap.origin.y;
+        return res;
     }
 
-    Vector3Int TileMapToDistanceMap(Vector3Int coords)
+    Vector2Int TileMapToDistanceMap(Vector3Int coords)
     {
-        coords.x -= 1 + tilemap.origin.x;
-        coords.y -= 1 + tilemap.origin.y;
-        return coords;
+        Vector2Int res = new Vector2Int(0, 0);
+        res.x = coords.x - 1 + tilemap.origin.x;
+        res.y = coords.y - 1 + tilemap.origin.y;
+        return res;
+    }
+
+    void setDistanceMap(Vector3Int destination)
+    {
+        int curdist = 0;
+        bool hasFoundDirt = true;
+        BoundsInt bounds = tilemap.cellBounds;
+        TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
+
+        distanceMap[destination.y, destination.x] = 0;
+        while (hasFoundDirt == true)
+        {
+            for (int j = 0; j < tilemap.size.y - 1; j++)
+            {
+                for (int i = 0; i < tilemap.size.x - 1; i++)
+                {
+                    TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
+                    if (tile.name != "dirt" /*|| distanceMap[]*/)
+                        continue;
+                    //TileBase tile = tilemap.GetTile<TileBase>(distanceMap);
+                }
+            }
+        }
     }
 }
 
