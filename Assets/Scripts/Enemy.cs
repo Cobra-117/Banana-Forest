@@ -22,8 +22,7 @@ public class Enemy : MonoBehaviour
             {
                 //Debug.Log("i: " + i.ToString());
                 //Debug.Log("getting x: " + (tilemap.origin.x + i + 1).ToString() + "y: " + (tilemap.origin.y + j + 1).ToString());
-                TileBase tile = tilemap.GetTile<TileBase>(new Vector3Int(tilemap.origin.x + i + 1, 
-                tilemap.origin.y + j + 1, 0));
+                TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector3Int(i, j, 0)));
                 if (tile.name == "dirt")
                 {
                     Debug.Log("getting x: " + (tilemap.origin.x + i + 1).ToString() + "y: " + (tilemap.origin.y + j + 1).ToString());
@@ -34,6 +33,13 @@ public class Enemy : MonoBehaviour
                 distanceMap[j, i] = 9999;
             }
         }
+    }
+
+    Vector3Int distanceMapToTileMap(Vector3Int coords)
+    {
+        coords.x += 1 + tilemap.origin.x;
+        coords.y += 1 + tilemap.origin.y;
+        return coords;
     }
 
     // Update is called once per frame
