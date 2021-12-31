@@ -22,12 +22,6 @@ public class Enemy : MonoBehaviour
             {
                 //Debug.Log("i: " + i.ToString());
                 //Debug.Log("getting x: " + (tilemap.origin.x + i + 1).ToString() + "y: " + (tilemap.origin.y + j + 1).ToString());
-                TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
-                if (tile.name == "dirt")
-                {
-                    Debug.Log("getting x: " + (tilemap.origin.x + i + 1).ToString() + "y: " + (tilemap.origin.y + j + 1).ToString());
-                    Debug.Log(i + " " + j + " " + "dirt");
-                }
                 distanceMap[j, i] = 9999;
             }
         }
@@ -79,53 +73,71 @@ public class Enemy : MonoBehaviour
 
     void indexDistanceMap(Vector3Int destination)
     {
-        int curdist = 0;
-        bool hasFoundDirt = true;
+        int CurrentDistance = 0;
+        bool indexedTiles = true;
         BoundsInt bounds = tilemap.cellBounds;
         TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
 
         distanceMap[destination.y, destination.x] = 0;
-        Debug.Log("dist map dest " + distanceMap[8, 27].ToString());
-        while (hasFoundDirt == true)
+        //Debug.Log("dist map dest " + distanceMap[8, 27].ToString());
+
+        /*next level of distance*/
+        while (indexedTiles == true)
         {
-            hasFoundDirt = false;
+            indexedTiles = false;
+            /*indexing each tile adjacent to CurrentDistance tiles*/
             for (int j = 0; j < tilemap.size.y - 1; j++)
             {
                 for (int i = 0; i < tilemap.size.x - 1; i++)
                 {
                     TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
-                    /*if tile is not indexed yet, continue*/
-                    if (tile.name != "dirt" || distanceMap[j, i] == 9999)
+                    /*if tile distance is not equal to CurrentDistance, continue*/
+                    if (tile.name != "dirt" || distanceMap[j, i] != CurrentDistance)
                         continue;
-                    Debug.Log("dist map " + i + " " + j + ""
-                        + "is indexed");
+                    /*Debug.Log("dist map " + i + " " + j + ""
+                        + "is indexed");*/
 
                     /*indexing x -1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i - 1, j)));
                     if (tile != null && tile.name == "dirt" && distanceMap[j, i - 1] == 9999)
                     {
-                        distanceMap[j, i - 1] = curdist;
-                        Debug.Log("indexed x - 1");
+                        distanceMap[j, i - 1] = CurrentDistance + 1;
+                        indexedTiles = true;
+                        //Debug.Log("indexed x - 1");
                     }
 
                     /*indexing x + 1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i + 1, j)));
                     if (tile != null && tile.name == "dirt" && distanceMap[j, i + 1] == 9999)
-                        distanceMap[j, i + 1] = curdist;
+                    {
+                        distanceMap[j, i + 1] = CurrentDistance + 1;
+                        indexedTiles = true;
+                        Debug.Log("indexed x + 1");
+                    }
 
                     /*indexing y -1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j - 1)));
                     if (tile != null && tile.name == "dirt" && distanceMap[j - 1, i] == 9999)
-                        distanceMap[j - 1, i] = curdist;
+                    {
+                        distanceMap[j - 1, i] = CurrentDistance + 1;
+                        indexedTiles = true;
+                        //Debug.Log("indexed y - 1");
+                    }
 
                     /*indexing y + 1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j + 1)));
                     if (tile != null && tile.name == "dirt" && distanceMap[j + 1, i] == 9999)
-                        distanceMap[j + 1, i] = curdist;
+                    {
+                        distanceMap[j + 1, i] = CurrentDistance + 1;
+                        indexedTiles = true;
+                        //Debug.Log("indexed y + 1");
+                    }
                     //TileBase tile = tilemap.GetTile<TileBase>(distanceMap);
                 }
             }
+            CurrentDistance++;
         }
+        //Debug.Log("total dist: " + CurrentDistance.ToString());
     }
 }
 
