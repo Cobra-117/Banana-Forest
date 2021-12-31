@@ -25,7 +25,7 @@ public class DistanceMap : MonoBehaviour
                 distanceMap[j, i] = 9999;
             }
         }
-        indexDistanceMap(new Vector3Int(27, 8, 0));
+        indexDistanceMap(new Vector3Int(26, 8, 0));
     }
 
     // Update is called once per frame
