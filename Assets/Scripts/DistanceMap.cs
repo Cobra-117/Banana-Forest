@@ -7,7 +7,7 @@ public class DistanceMap : MonoBehaviour
 {
     public Tilemap tilemap;
     private Vector3 pos;
-    private int[,] distanceMap;
+    public int[,] distanceMap;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +55,7 @@ public class DistanceMap : MonoBehaviour
         //Debug.Log("x: " + cellpos.x + "y: " + cellpos.y);   
     }
 
-    Vector3Int distanceMapToTileMap(Vector2Int coords)
+    public Vector3Int distanceMapToTileMap(Vector2Int coords)
     {
         Vector3Int res = new Vector3Int(0, 0, 0);
         res.x = coords.x + 1 + tilemap.origin.x;
@@ -63,7 +63,7 @@ public class DistanceMap : MonoBehaviour
         return res;
     }
 
-    Vector2Int TileMapToDistanceMap(Vector3Int coords)
+    public Vector2Int TileMapToDistanceMap(Vector3Int coords)
     {
         Vector2Int res = new Vector2Int(0, 0);
         res.x = coords.x - (1 + tilemap.origin.x);
