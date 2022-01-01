@@ -55,11 +55,17 @@ public class Enemy : MonoBehaviour
         int bestDistance = 9999;
         int direction = -1;
 
+        Debug.Log("pos : " + pos.ToString());
         if (pos.y < 16)
         {//set un truc qui marche pour tout les tailles de map
+            Debug.Log("test 1");
+            curDistance = _distanceMap[0, 0];
+            Debug.Log("test 2");
             curDistance = _distanceMap[pos.y + 1, pos.x];
+            Debug.Log("test 3");
             if (curDistance < bestDistance)
             {
+                Debug.Log("current distance0 " + curDistance.ToString());
                 direction = 0;
                 bestDistance = curDistance;
             }
@@ -69,6 +75,7 @@ public class Enemy : MonoBehaviour
             curDistance = _distanceMap[pos.y, pos.x + 1];
             if (curDistance < bestDistance)
             {
+                Debug.Log("current distance1 " + curDistance.ToString());
                 direction = 1;
                 bestDistance = curDistance;
             }
@@ -78,6 +85,7 @@ public class Enemy : MonoBehaviour
             curDistance = _distanceMap[pos.y - 1, pos.x];
             if (curDistance < bestDistance)
             {
+                Debug.Log("current distance2 " + curDistance.ToString());
                 direction = 2;
                 bestDistance = curDistance;
             }
@@ -87,14 +95,14 @@ public class Enemy : MonoBehaviour
             curDistance = _distanceMap[pos.y, pos.x - 1];
             if (curDistance < bestDistance)
             {
+                Debug.Log("current distance3 " + curDistance.ToString());
                 direction = 3;
                 bestDistance = curDistance;
             }
         }
-        Debug.Log("current distance" + curDistance.ToString());
         Debug.Log("direction: " + direction.ToString());
-        if (curDistance == 0)
-            direction = -1;
+        /*if (curDistance == 0)
+            direction = -1;*/
         return direction;
     }
 }

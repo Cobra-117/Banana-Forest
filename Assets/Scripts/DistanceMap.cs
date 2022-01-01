@@ -8,9 +8,10 @@ public class DistanceMap : MonoBehaviour
     public Tilemap tilemap;
     private Vector3 pos;
     public int[,] distanceMap;
+    public bool isInit = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Debug.Log(tilemap.localBounds);
         distanceMap = new int[tilemap.size.y, tilemap.size.x];
@@ -25,7 +26,8 @@ public class DistanceMap : MonoBehaviour
                 distanceMap[j, i] = 9999;
             }
         }
-        indexDistanceMap(new Vector3Int(26, 8, 0));
+        indexDistanceMap(new Vector3Int(25, 8, 0));
+        isInit = true;
     }
 
     // Update is called once per frame

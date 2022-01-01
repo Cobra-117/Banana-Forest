@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926e4b8a4ac34f8f8a17401b8da01a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
 --- !u!1 &1971752907
@@ -672,8 +672,8 @@ Tilemap:
   - first: {x: 13, y: -8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4881,14 +4881,14 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 38
+  - m_RefCount: 37
     m_Data: {fileID: 11400000, guid: f6e003d1e1e4b014394fa5bd54d54939, type: 2}
-  - m_RefCount: 410
+  - m_RefCount: 411
     m_Data: {fileID: 11400000, guid: 60dc77ea1da90a6bfa6aaac638212c12, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 38
+  - m_RefCount: 37
     m_Data: {fileID: 21300000, guid: 96e4cc29a07beefcba3133d3711633f3, type: 3}
-  - m_RefCount: 410
+  - m_RefCount: 411
     m_Data: {fileID: 21300000, guid: e9fdc7fcc9770957e8e9990d35666047, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 448
