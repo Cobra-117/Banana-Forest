@@ -9,11 +9,15 @@ public class Enemy : MonoBehaviour
     public DistanceMap distanceMapScript;
     public int[,] _distanceMap;
     public Tilemap tilemap;
+    Vector2Int currentFinishedTile;
 
     void Start()
     {
         _distanceMap = distanceMapScript.distanceMap;
         tilemap = distanceMapScript.tilemap;
+        Vector3Int TileMapTile = tilemap.WorldToCell(transform.position);
+        Vector2Int DistanceMapTile = distanceMapScript.TileMapToDistanceMap(TileMapTile);
+        currentFinishedTile = new Vector2Int(DistanceMapTile.x -1, DistanceMapTile.y - 1);
     }
 
     void Update()
@@ -25,28 +29,74 @@ public class Enemy : MonoBehaviour
     {
         Vector3Int TileMapTile = tilemap.WorldToCell(transform.position);
         Vector2Int DistanceMapTile = distanceMapScript.TileMapToDistanceMap(TileMapTile);
-        int direction;
+        int direction = -1;
 
-        direction = chooseMovingDirection(DistanceMapTile);
-        switch (direction)
+        if (FinishTile(DistanceMapTile) == 0)
+            direction = chooseMovingDirection(DistanceMapTile);
+        if (direction != -1)
         {
-            case 0:
-                transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
-                break;
-            case 1:
-                transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
-                break;
-            case 2:
-                transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
-                break;
-            case 3:
-                transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
-                break;
-            default:
-                Debug.Log("default");
-                break;
+            switch (direction)
+            {
+                case 0:
+                    transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+                    currentFinishedTile.y += 1;
+                    break;
+                case 1:
+                    transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+                    currentFinishedTile.x += 1;
+                    break;
+                case 2:
+                    transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+                    currentFinishedTile.y -= 1;
+                    break;
+                case 3:
+                    transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+                    currentFinishedTile.x -= 1;
+                    break;
+                default:
+                    //Debug.Log("default");
+                    break;
+            }
+            //Vérifier si on a changé de tile
         }
 
+    }
+
+    int FinishTile(Vector2Int pos)
+    {
+        Vector2 TileCenter = new Vector2(-8.64f + (currentFinishedTile.x + 1) * 0.64f, -4.8f + (currentFinishedTile.y + 1) * 0.64f); //set la valeur
+        Debug.Log("tilepos :" + pos);
+        Debug.Log("tilecenter :" + TileCenter.ToString());
+        if (transform.position.y < TileCenter.y)
+        {
+            transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+            if (transform.position.y > TileCenter.y)
+                transform.position = new Vector3(transform.position.x, TileCenter.y, transform.position.z);
+            return (1);
+        }
+        if (transform.position.x < TileCenter.x)
+        {
+            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+            if (transform.position.x > TileCenter.x)
+                transform.position = new Vector3(TileCenter.x, transform.position.y, transform.position.z);
+            return (1);
+        }
+        if (transform.position.y > TileCenter.y)
+        {
+            transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+            if (transform.position.y < TileCenter.y)
+                transform.position = new Vector3(transform.position.x, TileCenter.y, transform.position.z);
+            return (1);
+        }
+        if (transform.position.x > TileCenter.x)
+        {
+            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+            if (transform.position.x < TileCenter.x)
+                transform.position = new Vector3(TileCenter.x, transform.position.y, transform.position.z);
+            return (1);
+        }
+        return (0);
+        //Debug.Log("object pos:" + transform.position);
     }
 
     int chooseMovingDirection(Vector2Int pos)
@@ -58,14 +108,11 @@ public class Enemy : MonoBehaviour
         Debug.Log("pos : " + pos.ToString());
         if (pos.y < 16)
         {//set un truc qui marche pour tout les tailles de map
-            Debug.Log("test 1");
             curDistance = _distanceMap[0, 0];
-            Debug.Log("test 2");
             curDistance = _distanceMap[pos.y + 1, pos.x];
-            Debug.Log("test 3");
             if (curDistance < bestDistance)
             {
-                Debug.Log("current distance0 " + curDistance.ToString());
+                //Debug.Log("current distance0 " + curDistance.ToString());
                 direction = 0;
                 bestDistance = curDistance;
             }
@@ -75,7 +122,7 @@ public class Enemy : MonoBehaviour
             curDistance = _distanceMap[pos.y, pos.x + 1];
             if (curDistance < bestDistance)
             {
-                Debug.Log("current distance1 " + curDistance.ToString());
+                //Debug.Log("current distance1 " + curDistance.ToString());
                 direction = 1;
                 bestDistance = curDistance;
             }
@@ -85,7 +132,7 @@ public class Enemy : MonoBehaviour
             curDistance = _distanceMap[pos.y - 1, pos.x];
             if (curDistance < bestDistance)
             {
-                Debug.Log("current distance2 " + curDistance.ToString());
+                //Debug.Log("current distance2 " + curDistance.ToString());
                 direction = 2;
                 bestDistance = curDistance;
             }
@@ -95,7 +142,7 @@ public class Enemy : MonoBehaviour
             curDistance = _distanceMap[pos.y, pos.x - 1];
             if (curDistance < bestDistance)
             {
-                Debug.Log("current distance3 " + curDistance.ToString());
+                //Debug.Log("current distance3 " + curDistance.ToString());
                 direction = 3;
                 bestDistance = curDistance;
             }

@@ -285,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580394718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.646, y: 0.32, z: 0}
+  m_LocalPosition: {x: -8.67, y: 0.327, z: 0}
   m_LocalScale: {x: 0.32, y: 0.32, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926e4b8a4ac34f8f8a17401b8da01a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 0.3
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
 --- !u!1 &1971752907
@@ -4949,6 +4949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1971752910}
+  isInit: 0
 --- !u!1 &2136770250
 GameObject:
   m_ObjectHideFlags: 0
