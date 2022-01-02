@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926e4b8a4ac34f8f8a17401b8da01a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 3
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
 --- !u!1 &1971752907

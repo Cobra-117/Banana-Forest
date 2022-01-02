@@ -148,8 +148,8 @@ public class Enemy : MonoBehaviour
             }
         }
         Debug.Log("direction: " + direction.ToString());
-        /*if (curDistance == 0)
-            direction = -1;*/
+        if (curDistance == 0)
+            direction = -1;
         return direction;
     }
 }
