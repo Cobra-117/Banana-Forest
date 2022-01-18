@@ -26,7 +26,7 @@ public class DistanceMap : MonoBehaviour
                 distanceMap[j, i] = 9999;
             }
         }
-        indexDistanceMap(new Vector3Int(25, 8, 0));
+        indexDistanceMap(new Vector3Int(19, 5, 0));
         isInit = true;
     }
 
@@ -94,14 +94,14 @@ public class DistanceMap : MonoBehaviour
                 {
                     TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
                     /*if tile distance is not equal to CurrentDistance, continue*/
-                    if (tile.name != "dirt" || distanceMap[j, i] != CurrentDistance)
+                    if (!tile.name.Contains("path") || distanceMap[j, i] != CurrentDistance)
                         continue;
-                    /*Debug.Log("dist map " + i + " " + j + ""
-                        + "is indexed");*/
+                    Debug.Log("dist map " + i + " " + j + ""
+                        + "is indexed");
 
                     /*indexing x -1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i - 1, j)));
-                    if (tile != null && tile.name == "dirt" && distanceMap[j, i - 1] == 9999)
+                    if (tile != null && tile.name.Contains("path") && distanceMap[j, i - 1] == 9999)
                     {
                         distanceMap[j, i - 1] = CurrentDistance + 1;
                         indexedTiles = true;
@@ -110,7 +110,7 @@ public class DistanceMap : MonoBehaviour
 
                     /*indexing x + 1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i + 1, j)));
-                    if (tile != null && tile.name == "dirt" && distanceMap[j, i + 1] == 9999)
+                    if (tile != null && tile.name.Contains("path") && distanceMap[j, i + 1] == 9999)
                     {
                         distanceMap[j, i + 1] = CurrentDistance + 1;
                         indexedTiles = true;
@@ -119,7 +119,7 @@ public class DistanceMap : MonoBehaviour
 
                     /*indexing y -1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j - 1)));
-                    if (tile != null && tile.name == "dirt" && distanceMap[j - 1, i] == 9999)
+                    if (tile != null && tile.name.Contains("path") && distanceMap[j - 1, i] == 9999)
                     {
                         distanceMap[j - 1, i] = CurrentDistance + 1;
                         indexedTiles = true;
@@ -128,7 +128,7 @@ public class DistanceMap : MonoBehaviour
 
                     /*indexing y + 1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j + 1)));
-                    if (tile != null && tile.name == "dirt" && distanceMap[j + 1, i] == 9999)
+                    if (tile != null && tile.name.Contains("path") && distanceMap[j + 1, i] == 9999)
                     {
                         distanceMap[j + 1, i] = CurrentDistance + 1;
                         indexedTiles = true;
