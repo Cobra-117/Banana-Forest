@@ -38,19 +38,19 @@ public class Enemy : MonoBehaviour
             switch (direction)
             {
                 case 0:
-                    transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+                    transform.Translate(new Vector3(0, speed * Time.deltaTime, 0), Space.World);
                     currentFinishedTile.y += 1;
                     break;
                 case 1:
-                    transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+                    transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0), Space.World);
                     currentFinishedTile.x += 1;
                     break;
                 case 2:
-                    transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+                    transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0), Space.World);
                     currentFinishedTile.y -= 1;
                     break;
                 case 3:
-                    transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+                    transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0), Space.World);
                     currentFinishedTile.x -= 1;
                     break;
                 default:
@@ -65,32 +65,32 @@ public class Enemy : MonoBehaviour
     int FinishTile(Vector2Int pos)
     {
         Vector2 TileCenter = new Vector2(-8.64f + (currentFinishedTile.x + 1) * 0.64f, -4.8f + (currentFinishedTile.y + 1) * 0.64f); //set la valeur
-        Debug.Log("tilepos :" + pos);
-        Debug.Log("tilecenter :" + TileCenter.ToString());
+        //Debug.Log("tilepos :" + pos);
+        //Debug.Log("tilecenter :" + TileCenter.ToString());
         if (transform.position.y < TileCenter.y)
         {
-            transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+            transform.Translate(new Vector3(0, speed * Time.deltaTime, 0), Space.World);
             if (transform.position.y > TileCenter.y)
                 transform.position = new Vector3(transform.position.x, TileCenter.y, transform.position.z);
             return (1);
         }
         if (transform.position.x < TileCenter.x)
         {
-            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0), Space.World);
             if (transform.position.x > TileCenter.x)
                 transform.position = new Vector3(TileCenter.x, transform.position.y, transform.position.z);
             return (1);
         }
         if (transform.position.y > TileCenter.y)
         {
-            transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+            transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0), Space.World);
             if (transform.position.y < TileCenter.y)
                 transform.position = new Vector3(transform.position.x, TileCenter.y, transform.position.z);
             return (1);
         }
         if (transform.position.x > TileCenter.x)
         {
-            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0), Space.World);
             if (transform.position.x < TileCenter.x)
                 transform.position = new Vector3(TileCenter.x, transform.position.y, transform.position.z);
             return (1);

@@ -96,8 +96,8 @@ public class DistanceMap : MonoBehaviour
                     /*if tile distance is not equal to CurrentDistance, continue*/
                     if (!tile.name.Contains("path") || distanceMap[j, i] != CurrentDistance)
                         continue;
-                    Debug.Log("dist map " + i + " " + j + ""
-                        + "is indexed");
+                    /*Debug.Log("dist map " + i + " " + j + ""
+                        + "is indexed");*/
 
                     /*indexing x -1 tile*/
                     tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i - 1, j)));
