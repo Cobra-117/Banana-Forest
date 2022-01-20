@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class Enemy : MonoBehaviour
 {
     public float speed;
+    public int life = 10;
     public DistanceMap distanceMapScript;
     public int[,] _distanceMap;
     public Tilemap tilemap;
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (life == 0)
+            Destroy(this.gameObject);
         Move();
     }
 
@@ -40,17 +43,21 @@ public class Enemy : MonoBehaviour
                 case 0:
                     transform.Translate(new Vector3(0, speed * Time.deltaTime, 0), Space.World);
                     currentFinishedTile.y += 1;
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -90);
                     break;
                 case 1:
                     transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0), Space.World);
                     currentFinishedTile.x += 1;
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 180);
                     break;
                 case 2:
                     transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0), Space.World);
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 90);
                     currentFinishedTile.y -= 1;
                     break;
                 case 3:
                     transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0), Space.World);
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
                     currentFinishedTile.x -= 1;
                     break;
                 default:
