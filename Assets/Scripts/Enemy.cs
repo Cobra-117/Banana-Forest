@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
         int bestDistance = 9999;
         int direction = -1;
 
-        Debug.Log("pos : " + pos.ToString());
+        //Debug.Log("pos : " + pos.ToString());
         if (pos.y < 16)
         {//set un truc qui marche pour tout les tailles de map
             curDistance = _distanceMap[0, 0];
@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour
                 bestDistance = curDistance;
             }
         }
-        Debug.Log("direction: " + direction.ToString());
+        //Debug.Log("direction: " + direction.ToString());
         if (curDistance == 0)
             direction = -1;
         return direction;
