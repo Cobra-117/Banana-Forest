@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crossbow_Tower : MonoBehaviour
 {
     public GameObject closestEnemy;
+    public float range;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,8 @@ public class Crossbow_Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (closestEnemy == null || DistToObj(closestEnemy) > range)
+            closestEnemy = find_closest_enemy();
         if (closestEnemy != null)
             lookAtEnemy(closestEnemy);
             //transform.LookAt( new Vector3(closestEnemy.transform.position.x, closestEnemy.transform.position.y, 0));
@@ -40,7 +43,7 @@ public class Crossbow_Tower : MonoBehaviour
         {
             Debug.Log("Ennemy");
             cur_dist = DistToObj(enemy);
-            if (cur_dist < bs_dist)
+            if (cur_dist < bs_dist && cur_dist <= range)
             {
                 bs_dist = cur_dist;
                 closest = enemy;
