@@ -241,6 +241,7 @@ MonoBehaviour:
   life: 10
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
+  _sprite: {fileID: 1899352504}
 --- !u!61 &397355236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -637,6 +638,7 @@ MonoBehaviour:
   life: 10
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
+  _sprite: {fileID: 0}
 --- !u!1 &615597328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,8 +1156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817ff0e973d7f09428fd7d067cfef5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closestEnemy: {fileID: 0}
   range: 5
+  fireRate: 30
 --- !u!1 &1290497904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1290497905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1217,6 +1219,7 @@ MonoBehaviour:
   life: 10
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
+  _sprite: {fileID: 0}
 --- !u!212 &1290497907
 SpriteRenderer:
   m_ObjectHideFlags: 0

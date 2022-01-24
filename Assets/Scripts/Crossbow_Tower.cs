@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class Crossbow_Tower : MonoBehaviour
 {
-    public GameObject closestEnemy;
     public float range;
+    public float fireRate;
+
+    private GameObject closestEnemy;
+    private float fireCoutdown;
 
     // Start is called before the first frame update
     void Start()
     {
         closestEnemy = find_closest_enemy();
+        fireCoutdown = 1 / fireRate * 60;
     }
 
     // Update is called once per frame
     void Update()
     {
+        fireCoutdown -= Time.deltaTime;
         if (closestEnemy == null || DistToObj(closestEnemy) > range)
             closestEnemy = find_closest_enemy();
         if (closestEnemy != null)
+        {
             lookAtEnemy(closestEnemy);
+            if (fireCoutdown <= 0)
+            {
+                Shoot();
+                fireCoutdown = 1 / fireRate * 60;
+            }
+        }
             //transform.LookAt( new Vector3(closestEnemy.transform.position.x, closestEnemy.transform.position.y, 0));
     }
 
@@ -66,5 +78,10 @@ public class Crossbow_Tower : MonoBehaviour
             dist_y = dist_y * (-1);
         dist = (dist_x + dist_y);
         return (dist);
+    }
+
+    public void Shoot()
+    {
+        Debug.Log("Boom");
     }
 }
