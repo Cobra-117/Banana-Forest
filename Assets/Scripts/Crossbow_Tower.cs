@@ -6,6 +6,8 @@ public class Crossbow_Tower : MonoBehaviour
 {
     public float range;
     public float fireRate;
+    public GameObject projectilePrefab;
+    public GameObject currentProjectile;
 
     private GameObject closestEnemy;
     private float fireCoutdown;
@@ -82,6 +84,12 @@ public class Crossbow_Tower : MonoBehaviour
 
     public void Shoot()
     {
+        if (currentProjectile == null)
+            return;
+        Projectile proj = currentProjectile.GetComponent<Projectile>();
+
+        proj.speed = 10;
+        transform.DetachChildren();
         Debug.Log("Boom");
     }
 }
