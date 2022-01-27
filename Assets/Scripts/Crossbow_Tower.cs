@@ -4,26 +4,39 @@ using UnityEngine;
 
 public class Crossbow_Tower : MonoBehaviour
 {
+    [Header("Stats")]
     public float range;
     public float fireRate;
+
+    [Header("Unity")]
     public GameObject projectilePrefab;
     public GameObject currentProjectile;
+    public Sprite HighSprite;
+    public Sprite LowSprite;
 
+    private SpriteRenderer _SpriteRenderer;
     private GameObject closestEnemy;
     private float fireCoutdown;
-    private bool debug = false;
+    public bool debug = false;
 
     // Start is called before the first frame update
     void Start()
     {
         closestEnemy = find_closest_enemy();
         fireCoutdown = 1 / fireRate * 60;
+        _SpriteRenderer = GetComponent<SpriteRenderer>();
+        _SpriteRenderer.sprite = HighSprite;
     }
 
     // Update is called once per frame
     void Update()
     {
         fireCoutdown -= Time.deltaTime;
+        if (_SpriteRenderer.sprite == LowSprite && fireCoutdown < (1 / fireRate * 60) / 2)
+        {
+            _SpriteRenderer.sprite = HighSprite;
+            createProjectile();
+        }
         if (closestEnemy == null || DistToObj(closestEnemy) > range)
             closestEnemy = find_closest_enemy();
         if (closestEnemy != null)
@@ -85,20 +98,22 @@ public class Crossbow_Tower : MonoBehaviour
 
     public void Shoot()
     {
-        if (currentProjectile == null)
-            createProjectile();
         if (debug == true)
             return;
+        Debug.Log("shoot!" + debug);
         Projectile proj = currentProjectile.GetComponent<Projectile>();
 
         proj.speed = 10;
         transform.DetachChildren();
         Debug.Log("Boom");
+        _SpriteRenderer.sprite = LowSprite;
         debug = true;
     }
 
     void createProjectile()
     {
+        if (currentProjectile != null)
+            return;
         currentProjectile = Instantiate(projectilePrefab, transform);
     }
 }
