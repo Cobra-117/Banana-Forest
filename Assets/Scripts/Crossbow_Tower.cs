@@ -98,16 +98,11 @@ public class Crossbow_Tower : MonoBehaviour
 
     public void Shoot()
     {
-        if (debug == true)
-            return;
-        Debug.Log("shoot!" + debug);
         Projectile proj = currentProjectile.GetComponent<Projectile>();
 
         proj.speed = 10;
         transform.DetachChildren();
-        Debug.Log("Boom");
         _SpriteRenderer.sprite = LowSprite;
-        debug = true;
     }
 
     void createProjectile()
