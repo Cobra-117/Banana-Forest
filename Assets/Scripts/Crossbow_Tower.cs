@@ -11,6 +11,7 @@ public class Crossbow_Tower : MonoBehaviour
 
     private GameObject closestEnemy;
     private float fireCoutdown;
+    private bool debug = false;
 
     // Start is called before the first frame update
     void Start()
@@ -85,11 +86,19 @@ public class Crossbow_Tower : MonoBehaviour
     public void Shoot()
     {
         if (currentProjectile == null)
+            createProjectile();
+        if (debug == true)
             return;
         Projectile proj = currentProjectile.GetComponent<Projectile>();
 
         proj.speed = 10;
         transform.DetachChildren();
         Debug.Log("Boom");
+        debug = true;
+    }
+
+    void createProjectile()
+    {
+        currentProjectile = Instantiate(projectilePrefab, transform);
     }
 }
