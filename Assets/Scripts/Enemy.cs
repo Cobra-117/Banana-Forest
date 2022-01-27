@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        distanceMapScript = GameObject.FindGameObjectWithTag("Tilemap").GetComponent<DistanceMap>();
         _distanceMap = distanceMapScript.distanceMap;
         tilemap = distanceMapScript.tilemap;
         Vector3Int TileMapTile = tilemap.WorldToCell(transform.position);
@@ -73,7 +74,6 @@ public class Enemy : MonoBehaviour
                     //Debug.Log("default");
                     break;
             }
-            //Vérifier si on a changé de tile
         }
 
     }
