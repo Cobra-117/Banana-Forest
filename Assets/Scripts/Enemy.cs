@@ -5,12 +5,18 @@ using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Stats")]
     public float speed;
-    public int life = 10;
+    public int MaxHealth = 10;
+
+    [Header("Unity")]
     public DistanceMap distanceMapScript;
     public int[,] _distanceMap;
     public Tilemap tilemap;
     public GameObject _sprite;
+    public GameObject HealthBar;
+
+    public int curHealth;
     Vector2Int currentFinishedTile;
 
     void Start()
@@ -20,12 +26,14 @@ public class Enemy : MonoBehaviour
         Vector3Int TileMapTile = tilemap.WorldToCell(transform.position);
         Vector2Int DistanceMapTile = distanceMapScript.TileMapToDistanceMap(TileMapTile);
         currentFinishedTile = new Vector2Int(DistanceMapTile.x -1, DistanceMapTile.y - 1);
+        curHealth = MaxHealth;
     }
 
     void Update()
     {
-        if (life == 0)
+        if (curHealth == 0)
             Destroy(this.gameObject);
+        HealthBar.transform.localScale = new Vector3(0.4f/MaxHealth * curHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
         Move();
     }
 

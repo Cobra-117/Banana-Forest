@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
     {
         Debug.Log("collision");
         if (collision.gameObject.tag == "Enemy")
-            collision.gameObject.GetComponent<Enemy>().life -= damage;
+            collision.gameObject.GetComponent<Enemy>().curHealth -= damage;
         Destroy(this.gameObject);
     }
 
