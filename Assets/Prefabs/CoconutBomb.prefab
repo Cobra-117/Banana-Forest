@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8418086131428802761}
   - component: {fileID: 2539554734447709991}
   - component: {fileID: 446023739876078269}
+  - component: {fileID: 133500677665876828}
   m_Layer: 0
   m_Name: CoconutBomb
   m_TagString: Untagged
@@ -123,3 +124,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
+--- !u!114 &133500677665876828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307648783717380526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4a3bea7b51b7e49b12e52c0004b895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
