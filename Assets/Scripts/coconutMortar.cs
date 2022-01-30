@@ -17,7 +17,8 @@ public class coconutMortar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        closestEnemy = find_closest_enemy();
+        fireCoutdown = 1 / fireRate * 60;
     }
 
     // Update is called once per frame
@@ -76,5 +77,6 @@ public class coconutMortar : MonoBehaviour
     public void Shoot()
     {
         Debug.Log("Boom");
+        GameObject bomb = Instantiate(projectilePrefab);
     }
 }
