@@ -19,7 +19,7 @@ public class CoconutBomb : MonoBehaviour
     {
         if (speed != 0)
         {
-            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, -speed * Time.deltaTime));
             if (DistToTarget(Target) < 0.1f)
                 explode();
         }

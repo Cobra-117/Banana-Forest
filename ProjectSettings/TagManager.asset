@@ -49,6 +49,9 @@ TagManager:
   - name: Ennemy
     uniqueID: 4153302673
     locked: 0
+  - name: Projectile
+    uniqueID: 3839684501
+    locked: 0
   - name: UI1
     uniqueID: 3524184833
     locked: 0
