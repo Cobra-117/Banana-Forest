@@ -182,6 +182,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 661009556151670843, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 661009556151670843, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661009556151670843, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -141664623
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
 --- !u!1 &420837169
@@ -1302,7 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  fireRate: 5
+  fireRate: 15
   projectilePrefab: {fileID: 307648783717380526, guid: 2b33814d568efa343a013ea4627f8953, type: 3}
 --- !u!1 &1290497904
 GameObject:

@@ -64,4 +64,11 @@ public class CoconutBomb : MonoBehaviour
         dist = (dist_x + dist_y);
         return (dist);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        explode();
+    }
+
+    //size with target
 }

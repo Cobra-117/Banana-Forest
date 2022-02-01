@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2331312544701209050}
   - component: {fileID: 8418086131428802761}
   - component: {fileID: 133500677665876828}
+  - component: {fileID: -6308315392525996558}
   m_Layer: 0
   m_Name: CoconutBomb
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 307648783717380526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.329, y: -0.989, z: 0}
-  m_LocalScale: {x: 0.33, y: 0.33, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,3 +101,19 @@ MonoBehaviour:
   speed: 0
   damage: 1
   Target: {x: 0, y: 0, z: 0}
+--- !u!58 &-6308315392525996558
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307648783717380526}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
