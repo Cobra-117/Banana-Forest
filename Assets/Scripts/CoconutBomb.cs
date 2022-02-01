@@ -18,7 +18,11 @@ public class CoconutBomb : MonoBehaviour
     void Update()
     {
         if (speed != 0)
+        {
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+            if (DistToTarget(Target) < 0.1f)
+                explode();
+        }
     }
 
     public void rotationToTarget(Vector3 _target)
@@ -28,11 +32,36 @@ public class CoconutBomb : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg + 180);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void explode()
     {
-        Debug.Log("collision");
-        if (collision.gameObject.tag == "Enemy")
-            collision.gameObject.GetComponent<Enemy>().curHealth -= damage;
+        Debug.Log("Boom");
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y) , 5f);
+        Debug.Log("size: " + colliders.Length.ToString());
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Debug.Log("I");
+            if (colliders[i].gameObject.tag == "Enemy")
+            {
+                colliders[i].gameObject.GetComponent<Enemy>().curHealth -= 1;
+                Debug.Log("Touched");
+            }
+        }
         Destroy(this.gameObject);
+    }
+
+    public float DistToTarget(Vector3 _Target)
+    {
+        float dist = 0;
+        float dist_x = 0;
+        float dist_y = 0;
+
+        dist_x = transform.position.x - _Target.x;
+        dist_y = transform.position.y - _Target.y;
+        if (dist_x < 0)
+            dist_x = dist_x * (-1);
+        if (dist_y < 0)
+            dist_y = dist_y * (-1);
+        dist = (dist_x + dist_y);
+        return (dist);
     }
 }
