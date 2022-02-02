@@ -52,6 +52,12 @@ TagManager:
   - name: Projectile
     uniqueID: 3839684501
     locked: 0
+  - name: UI0
+    uniqueID: 2889670765
+    locked: 0
+  - name: Squirrel
+    uniqueID: 516605483
+    locked: 0
   - name: UI1
     uniqueID: 3524184833
     locked: 0

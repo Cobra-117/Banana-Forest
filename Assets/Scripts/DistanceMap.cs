@@ -9,6 +9,7 @@ public class DistanceMap : MonoBehaviour
     private Vector3 pos;
     public int[,] distanceMap;
     public bool isInit = false;
+    public Vector2Int Destination;
 
     // Start is called before the first frame update
     void Awake()
@@ -26,7 +27,7 @@ public class DistanceMap : MonoBehaviour
                 distanceMap[j, i] = 9999;
             }
         }
-        indexDistanceMap(new Vector3Int(19, 5, 0));
+        indexDistanceMap(new Vector3Int(Destination.x, Destination.y, 0));
         isInit = true;
     }
 
