@@ -98,9 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4a3bea7b51b7e49b12e52c0004b895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speedMultiplier: 0.5
   damage: 1
-  Target: {x: 0, y: 0, z: 0}
+  range: 1.5
+  StartPoint: {x: 0, y: 0, z: 0}
+  TargetObj: {fileID: 0}
 --- !u!58 &-6308315392525996558
 CircleCollider2D:
   m_ObjectHideFlags: 0

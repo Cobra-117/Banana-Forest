@@ -6837,6 +6837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bulldozer
       objectReference: {fileID: 0}
+    - target: {fileID: 661009554566668640, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 661009554566668641, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
       propertyPath: tilemap
       value: 

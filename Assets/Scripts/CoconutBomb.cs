@@ -1,26 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CoconutBomb : MonoBehaviour
 {
-    public float speed = 0;
-    public int damage = 1;
+    public float speedMultiplier;
+    public int damage;
+    public float range;
 
-    public Vector3 Target;
+    public Vector3 StartPoint;
+    public GameObject TargetObj;
+
+    private float AnimationT;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartPoint = transform.position;
+        AnimationT = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (speed != 0)
+        AnimationT += Time.deltaTime;
+        //AnimationT = AnimationT % 5;
+
+        if (1 == 1)
         {
-            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, -speed * Time.deltaTime));
-            if (DistToTarget(Target) < 0.1f)
+            //transform.Translate(new Vector3(-speed * Time.deltaTime, 0, -speed * Time.deltaTime));
+            transform.position = Parabola(StartPoint, TargetObj.transform.position, 2f, AnimationT * speedMultiplier);
+            if (DistToObj(TargetObj) < 0.1f)
                 explode();
         }
     }
@@ -35,7 +46,7 @@ public class CoconutBomb : MonoBehaviour
     void explode()
     {
         Debug.Log("Boom");
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y) , 5f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y) , range);
         Debug.Log("size: " + colliders.Length.ToString());
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -49,14 +60,14 @@ public class CoconutBomb : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public float DistToTarget(Vector3 _Target)
+    public float DistToObj(GameObject obj)
     {
         float dist = 0;
         float dist_x = 0;
         float dist_y = 0;
 
-        dist_x = transform.position.x - _Target.x;
-        dist_y = transform.position.y - _Target.y;
+        dist_x = transform.position.x - obj.transform.position.x;
+        dist_y = transform.position.y - obj.transform.position.y;
         if (dist_x < 0)
             dist_x = dist_x * (-1);
         if (dist_y < 0)
@@ -70,5 +81,14 @@ public class CoconutBomb : MonoBehaviour
         explode();
     }
 
-    //size with target
+    /*From Ditzel Maths parabola class https://gist.github.com/ditzel/68be36987d8e7c83d48f497294c66e08 */
+    public static Vector3 Parabola(Vector3 start, Vector3 end, float height, float t)
+    {
+        Func<float, float> f = x => -4 * height * x * x + 4 * height * x;
+
+        var mid = Vector3.Lerp(start, end, t);
+
+        return new Vector3(mid.x, f(t) + Mathf.Lerp(start.y, end.y, t), mid.z);
+    }
+
 }

@@ -81,8 +81,7 @@ public class coconutMortar : MonoBehaviour
         CoconutBomb script = bomb.GetComponent<CoconutBomb>();
 
         bomb.transform.position = this.gameObject.transform.position;
-        script.Target = closestEnemy.transform.position;
-        script.rotationToTarget(script.Target);
-        script.speed = 1;
+        script.TargetObj = closestEnemy;
+        script.rotationToTarget(script.TargetObj.transform.position);
     }
 }
