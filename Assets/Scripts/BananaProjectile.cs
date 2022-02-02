@@ -6,10 +6,10 @@ public class BananaProjectile : MonoBehaviour
 {
     public GameObject Target;
     public float speed = 0;
+    public float RotationSpeed;
 
     private Vector3 startPos;
-    private GameObject child;
-    private float RotationSpeed;
+    public GameObject child;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,11 @@ public class BananaProjectile : MonoBehaviour
     void Update()
     {
         if (speed != 0)
+        {
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+            child.transform.localEulerAngles = new Vector3(child.transform.localEulerAngles.x, child.transform.localEulerAngles.y,
+            child.transform.localEulerAngles.z + RotationSpeed * Time.deltaTime);
+        }
     }
 
     public float DistToObj(GameObject obj)
