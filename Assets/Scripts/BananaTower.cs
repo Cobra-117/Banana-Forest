@@ -83,6 +83,7 @@ public class BananaTower : MonoBehaviour
         banana.transform.position = this.gameObject.transform.position;
         script.Target = closestEnemy;
         script.lookAtEnemy(script.Target);
-        script.speed = 5;
+        script.speed = 8;
+        script.range = range;
     }
 }
