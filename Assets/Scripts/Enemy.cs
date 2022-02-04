@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
     public float speed;
-    public int MaxHealth = 10;
+    public float MaxHealth = 10;
 
     [Header("Unity")]
     public DistanceMap distanceMapScript;
@@ -15,8 +15,11 @@ public class Enemy : MonoBehaviour
     public Tilemap tilemap;
     public GameObject _sprite;
     public GameObject HealthBar;
+    public bool isPoisoned;
+    public float PoisonPower;
+    public float poisonCoutdown = 0;
 
-    public int curHealth;
+    public float curHealth;
     Vector2Int currentFinishedTile;
 
     void Start()
@@ -32,7 +35,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (curHealth == 0)
+        if (isPoisoned == true && poisonCoutdown > 0)
+        {
+            curHealth -= PoisonPower* Time.deltaTime;
+            poisonCoutdown -= Time.deltaTime;
+        }
+        if (curHealth <= 0)
             Destroy(this.gameObject);
         HealthBar.transform.localScale = new Vector3(0.4f/MaxHealth * curHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
         Move();

@@ -222,6 +222,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 661009554566668641, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: isPoisoned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661009554566668641, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: poisonCoutdown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 661009554566668647, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -627,6 +635,8 @@ MonoBehaviour:
   tilemap: {fileID: 1971752910}
   _sprite: {fileID: 0}
   HealthBar: {fileID: 0}
+  isPoisoned: 0
+  poisonCoutdown: 0
   curHealth: 0
 --- !u!1 &634872154
 GameObject:
@@ -1310,6 +1320,8 @@ MonoBehaviour:
   tilemap: {fileID: 1971752910}
   _sprite: {fileID: 0}
   HealthBar: {fileID: 0}
+  isPoisoned: 0
+  poisonCoutdown: 0
   curHealth: 0
 --- !u!212 &1290497907
 SpriteRenderer:
@@ -6889,6 +6901,10 @@ PrefabInstance:
     - target: {fileID: 1658735680752201175, guid: cf91f13f35bd08942b9ff25457f58596, type: 3}
       propertyPath: m_Name
       value: Banana Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658735680752201175, guid: cf91f13f35bd08942b9ff25457f58596, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf91f13f35bd08942b9ff25457f58596, type: 3}
