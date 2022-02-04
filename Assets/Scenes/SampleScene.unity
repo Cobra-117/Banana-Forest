@@ -227,6 +227,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 661009554566668641, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: PoisonPower
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 661009554566668641, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
       propertyPath: poisonCoutdown
       value: 3
       objectReference: {fileID: 0}
@@ -636,6 +640,7 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   HealthBar: {fileID: 0}
   isPoisoned: 0
+  PoisonPower: 0
   poisonCoutdown: 0
   curHealth: 0
 --- !u!1 &634872154
@@ -1321,6 +1326,7 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   HealthBar: {fileID: 0}
   isPoisoned: 0
+  PoisonPower: 0
   poisonCoutdown: 0
   curHealth: 0
 --- !u!212 &1290497907
