@@ -9,7 +9,6 @@ public class BananaProjectile : MonoBehaviour
     public float RotationSpeed;
     public float range;
     public GameObject child;
-    public float debug;
     public float minSpeed;
 
     private Vector3 startPos;
@@ -31,7 +30,6 @@ public class BananaProjectile : MonoBehaviour
 
         if (speed != 0)
         {
-            Debug.Log("goBack: " + goBack);
             if (goBack == false)
             {
                 realSpeed = speed * ((range - DistToTarget(startPos))) / range;
