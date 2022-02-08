@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (isPoisoned == true && poisonCoutdown > 0)
+        if (poisonCoutdown > 0)
         {
             curHealth -= PoisonPower* Time.deltaTime;
             poisonCoutdown -= Time.deltaTime;
