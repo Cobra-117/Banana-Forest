@@ -46,21 +46,21 @@ public class FlyingSquirrel : MonoBehaviour
                 case 0:
                     transform.Translate(new Vector3(0, speed * Time.deltaTime, 0), Space.World);
                     currentFinishedTile.y += 1;
-                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, -90);
+                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, 0);
                     break;
                 case 1:
                     transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0), Space.World);
                     currentFinishedTile.x += 1;
-                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, 180);
+                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, -90);
                     break;
                 case 2:
                     transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0), Space.World);
-                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, 90);
+                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, 180);
                     currentFinishedTile.y -= 1;
                     break;
                 case 3:
                     transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0), Space.World);
-                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, 0);
+                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, 90);
                     currentFinishedTile.x -= 1;
                     break;
                 default:
@@ -107,14 +107,14 @@ public class FlyingSquirrel : MonoBehaviour
     int chooseMovingDirection(Vector2Int pos)
     {
         int curDistance = -1;
-        int bestDistance = 9999;
+        int bestDistance = -1;
         int direction = -1;
 
         if (pos.y < 16)
         {//set un truc qui marche pour tout les tailles de map
             curDistance = _distanceMap[0, 0];
             curDistance = _distanceMap[pos.y + 1, pos.x];
-            if (curDistance < bestDistance)
+            if (curDistance != 9999 && curDistance > bestDistance)
             {
                 direction = 0;
                 bestDistance = curDistance;
@@ -123,7 +123,7 @@ public class FlyingSquirrel : MonoBehaviour
         if (pos.x < 28)
         {//set un truc qui marche pour tout les tailles de map
             curDistance = _distanceMap[pos.y, pos.x + 1];
-            if (curDistance < bestDistance)
+            if (curDistance != 9999 && curDistance > bestDistance)
             {
                 direction = 1;
                 bestDistance = curDistance;
@@ -132,7 +132,7 @@ public class FlyingSquirrel : MonoBehaviour
         if (pos.y > 0)
         {//set un truc qui marche pour tout les tailles de map
             curDistance = _distanceMap[pos.y - 1, pos.x];
-            if (curDistance < bestDistance)
+            if (curDistance != 9999 && curDistance > bestDistance)
             {
                 direction = 2;
                 bestDistance = curDistance;
@@ -141,7 +141,7 @@ public class FlyingSquirrel : MonoBehaviour
         if (pos.x > 0)
         {//set un truc qui marche pour tout les tailles de map
             curDistance = _distanceMap[pos.y, pos.x - 1];
-            if (curDistance < bestDistance)
+            if (curDistance != 9999 && curDistance > bestDistance)
             {
                 direction = 3;
                 bestDistance = curDistance;
