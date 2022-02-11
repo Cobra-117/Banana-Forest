@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
         int bestDistance = 9999;
         int direction = -1;
 
-        if (pos.y < 16)
+        if (pos.y < tilemap.size.y - 1)
         {//set un truc qui marche pour tout les tailles de map
             curDistance = _distanceMap[0, 0];
             curDistance = _distanceMap[pos.y + 1, pos.x];
@@ -135,7 +135,7 @@ public class Enemy : MonoBehaviour
                 bestDistance = curDistance;
             }
         }
-        if (pos.x < 28)
+        if (pos.x < tilemap.size.x - 1)
         {//set un truc qui marche pour tout les tailles de map
             curDistance = _distanceMap[pos.y, pos.x + 1];
             if (curDistance < bestDistance)
