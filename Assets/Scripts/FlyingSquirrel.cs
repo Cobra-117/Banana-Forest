@@ -110,8 +110,8 @@ public class FlyingSquirrel : MonoBehaviour
         int bestDistance = -1;
         int direction = -1;
 
-        if (pos.y < 16)
-        {//set un truc qui marche pour tout les tailles de map
+        if (pos.y < tilemap.size.y - 1)
+        {
             curDistance = _distanceMap[0, 0];
             curDistance = _distanceMap[pos.y + 1, pos.x];
             if (curDistance != 9999 && curDistance > bestDistance)
@@ -120,8 +120,8 @@ public class FlyingSquirrel : MonoBehaviour
                 bestDistance = curDistance;
             }
         }
-        if (pos.x < 28)
-        {//set un truc qui marche pour tout les tailles de map
+        if (pos.x < tilemap.size.x - 1)
+        {
             curDistance = _distanceMap[pos.y, pos.x + 1];
             if (curDistance != 9999 && curDistance > bestDistance)
             {
@@ -130,7 +130,7 @@ public class FlyingSquirrel : MonoBehaviour
             }
         }
         if (pos.y > 0)
-        {//set un truc qui marche pour tout les tailles de map
+        {
             curDistance = _distanceMap[pos.y - 1, pos.x];
             if (curDistance != 9999 && curDistance > bestDistance)
             {
@@ -139,7 +139,7 @@ public class FlyingSquirrel : MonoBehaviour
             }
         }
         if (pos.x > 0)
-        {//set un truc qui marche pour tout les tailles de map
+        {
             curDistance = _distanceMap[pos.y, pos.x - 1];
             if (curDistance != 9999 && curDistance > bestDistance)
             {
@@ -151,7 +151,4 @@ public class FlyingSquirrel : MonoBehaviour
             direction = -1;
         return direction;
     }
-
-
-    //Suit la map à l'envers
 }
