@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public GameObject Tower;
+    public DistanceMap distanceMapScript;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -24,7 +25,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log(eventData.pointerCurrentRaycast.worldPosition);
+        Debug.Log("On End Drag");
         GameObject NewTower = Instantiate(Tower);
+        Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        NewTower.transform.position = distanceMapScript.tilemap.CellToWorld(cell);
     }
 }

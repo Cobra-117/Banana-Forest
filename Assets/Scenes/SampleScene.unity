@@ -1183,6 +1183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tower: {fileID: 5313288683806228669, guid: 95649155b534f7f4e804e82c5606aa22, type: 3}
+  distanceMapScript: {fileID: 1971752911}
 --- !u!1001 &901378258
 PrefabInstance:
   m_ObjectHideFlags: 0
