@@ -98,6 +98,8 @@ public class Crossbow_Tower : MonoBehaviour
 
     public void Shoot()
     {
+        if (currentProjectile == null)
+            return;
         Projectile proj = currentProjectile.GetComponent<Projectile>();
 
         proj.speed = 10;

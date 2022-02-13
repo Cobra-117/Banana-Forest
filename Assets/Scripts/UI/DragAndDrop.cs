@@ -15,7 +15,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Drag");
+        //Debug.Log("Drag");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -28,6 +28,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         Debug.Log("On End Drag");
         GameObject NewTower = Instantiate(Tower);
         Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //Corriger la position
+        //Mettre une vérification pour savoir si la tile est libre
         NewTower.transform.position = distanceMapScript.tilemap.CellToWorld(cell);
     }
 }
