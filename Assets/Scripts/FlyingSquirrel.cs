@@ -31,6 +31,11 @@ public class FlyingSquirrel : MonoBehaviour
         Move();
     }
 
+    void Attack()
+    {
+
+    }
+
     void Move()
     {
         Vector3Int TileMapTile = tilemap.WorldToCell(transform.position);
