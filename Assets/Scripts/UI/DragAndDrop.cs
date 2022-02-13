@@ -30,6 +30,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         //Corriger la position
         //Mettre une vérification pour savoir si la tile est libre
-        NewTower.transform.position = distanceMapScript.tilemap.CellToWorld(cell);
+        //vérifier si on a assez d'argent
+        NewTower.transform.position = new Vector3 (distanceMapScript.tilemap.CellToWorld(cell).x + 0.32f,
+            distanceMapScript.tilemap.CellToWorld(cell).y + 0.32f, 0);
     }
 }
