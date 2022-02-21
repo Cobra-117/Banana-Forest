@@ -7,6 +7,12 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 {
     public GameObject Tower;
     public DistanceMap distanceMapScript;
+    public GLOBAL global;
+
+    void Start()
+    {
+        global = GameObject.FindGameObjectWithTag("Global").GetComponent<GLOBAL>();
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -25,13 +31,21 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (hasEnoughMoney(3000) == false)
+            return;
         Debug.Log("On End Drag");
         GameObject NewTower = Instantiate(Tower);
         Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        //Corriger la position
         //Mettre une vérification pour savoir si la tile est libre
         //vérifier si on a assez d'argent
         NewTower.transform.position = new Vector3 (distanceMapScript.tilemap.CellToWorld(cell).x + 0.32f,
             distanceMapScript.tilemap.CellToWorld(cell).y + 0.32f, 0);
+    }
+
+    public bool hasEnoughMoney(int price)
+    {
+        if (price > global.money)
+            return false;
+        return true;
     }
 }

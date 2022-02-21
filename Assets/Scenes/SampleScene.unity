@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tower: {fileID: 1079818684834356859, guid: c899a6eecf945b34783aeb9d72a87154, type: 3}
   distanceMapScript: {fileID: 1971752911}
+  global: {fileID: 0}
 --- !u!114 &15696993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,6 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tower: {fileID: 1658735680752201175, guid: cf91f13f35bd08942b9ff25457f58596, type: 3}
   distanceMapScript: {fileID: 1971752911}
+  global: {fileID: 0}
 --- !u!114 &262944667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,6 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tower: {fileID: 968628822276162524, guid: b4f29185ae7d0fd4dae70457cf88812b, type: 3}
   distanceMapScript: {fileID: 1971752911}
+  global: {fileID: 0}
 --- !u!114 &755673305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2113,6 +2116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tower: {fileID: 5313288683806228669, guid: 95649155b534f7f4e804e82c5606aa22, type: 3}
   distanceMapScript: {fileID: 1971752911}
+  global: {fileID: 0}
 --- !u!1001 &901378258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3049,7 +3053,7 @@ GameObject:
   - component: {fileID: 1312924817}
   m_Layer: 0
   m_Name: GLOBAL
-  m_TagString: Untagged
+  m_TagString: Global
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3066,6 +3070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec54e27f50798334a89fb0f491bbdfbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 0
+  health: 10
 --- !u!4 &1312924818
 Transform:
   m_ObjectHideFlags: 0
@@ -14760,6 +14766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tower: {fileID: 5313288683806228669, guid: 95649155b534f7f4e804e82c5606aa22, type: 3}
   distanceMapScript: {fileID: 1971752911}
+  global: {fileID: 0}
 --- !u!114 &2033599111
 MonoBehaviour:
   m_ObjectHideFlags: 0

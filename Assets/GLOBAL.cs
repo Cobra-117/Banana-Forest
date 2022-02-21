@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class GLOBAL : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int money = 0;
+    public short health = 10;
 }
