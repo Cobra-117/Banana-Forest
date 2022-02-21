@@ -3085,8 +3085,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 200
   health: 10
-  curWave: 0
-  maxWave: 0
+  curWave: 1
+  maxWave: 5
   score: 0
 --- !u!4 &1312924818
 Transform:
@@ -9389,6 +9389,7 @@ GameObject:
   - component: {fileID: 1820779477}
   - component: {fileID: 1820779479}
   - component: {fileID: 1820779478}
+  - component: {fileID: 1820779480}
   m_Layer: 5
   m_Name: Wave
   m_TagString: Untagged
@@ -9513,6 +9514,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820779476}
   m_CullTransparentMesh: 1
+--- !u!114 &1820779480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820779476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e4d10437bb767449f90ac52d433cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1821208058
 GameObject:
   m_ObjectHideFlags: 0
