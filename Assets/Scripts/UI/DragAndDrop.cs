@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public GameObject Tower;
+    public int towerPrice;
     public DistanceMap distanceMapScript;
-    public GLOBAL global;
+
+    private GLOBAL global;
 
     void Start()
     {
@@ -31,7 +33,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (hasEnoughMoney(3000) == false)
+        if (hasEnoughMoney(towerPrice) == false)
             return;
         Debug.Log("On End Drag");
         GameObject NewTower = Instantiate(Tower);
