@@ -42,6 +42,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         //vérifier si on a assez d'argent
         NewTower.transform.position = new Vector3 (distanceMapScript.tilemap.CellToWorld(cell).x + 0.32f,
             distanceMapScript.tilemap.CellToWorld(cell).y + 0.32f, 0);
+        global.money -= towerPrice;
     }
 
     public bool hasEnoughMoney(int price)

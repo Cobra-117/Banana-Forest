@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 188288578}
   - component: {fileID: 188288577}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,13 +540,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1155459502}
   m_Father: {fileID: 623497760}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 780.1, y: -3.6998901}
+  m_AnchoredPosition: {x: 780.09985, y: -3.6998901}
   m_SizeDelta: {x: 304.8072, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &188288577
@@ -1123,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531713226}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,7 +1333,6 @@ RectTransform:
   - {fileID: 1515448332}
   - {fileID: 531713226}
   - {fileID: 188288576}
-  - {fileID: 1155459502}
   m_Father: {fileID: 815064135}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2547,7 +2547,7 @@ GameObject:
   - component: {fileID: 1155459504}
   - component: {fileID: 1155459503}
   m_Layer: 5
-  m_Name: Score
+  m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2565,12 +2565,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 623497760}
-  m_RootOrder: 3
+  m_Father: {fileID: 188288576}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 754.7, y: -2.300122}
+  m_AnchoredPosition: {x: -25.399841, y: 1.3998291}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1155459503
@@ -3072,6 +3072,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 200
   health: 10
+  curWave: 0
+  maxWave: 0
+  score: 0
 --- !u!4 &1312924818
 Transform:
   m_ObjectHideFlags: 0
@@ -3833,6 +3836,7 @@ GameObject:
   - component: {fileID: 1566525103}
   - component: {fileID: 1566525105}
   - component: {fileID: 1566525104}
+  - component: {fileID: 1566525106}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3957,6 +3961,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566525102}
   m_CullTransparentMesh: 1
+--- !u!114 &1566525106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566525102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d0af4fdbca0134d98975c668b7dffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  global: {fileID: 0}
 --- !u!1 &1675566026
 GameObject:
   m_ObjectHideFlags: 0
