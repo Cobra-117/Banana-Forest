@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class MoneyText : MonoBehaviour
+public class HealthText : MonoBehaviour
 {
     private GLOBAL global;
     private TMPro.TextMeshProUGUI txt;
@@ -18,6 +17,6 @@ public class MoneyText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = global.money.ToString();
+        txt.text = global.health.ToString();
     }
 }
