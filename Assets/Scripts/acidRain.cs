@@ -9,10 +9,11 @@ public class acidRain : MonoBehaviour
     public GameObject ParticleSystem;
 
     // Start is called before the first frame update
-    void ActivateRain()
+    public void ActivateRain()
     {
         isRaining = true;
         Countdown = 15;
+        ParticleSystem.SetActive(true);
     }
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class acidRain : MonoBehaviour
                 continue;
             //ennemy.GetComponent<Enemy>();
             ennemy.GetComponent<Enemy>().isPoisoned = true;
-            ennemy.GetComponent<Enemy>().PoisonPower = 0.3f;
+            ennemy.GetComponent<Enemy>().PoisonPower = 0.7f;
             ennemy.GetComponent<Enemy>().poisonCoutdown = 0.1f;
         }
     }
