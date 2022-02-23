@@ -24,8 +24,7 @@ public class Snakes : MonoBehaviour
         if (collision.gameObject.tag != "Enemy" || cooldown > 0)
             return;
         Enemy EnemyScript = collision.gameObject.GetComponent<Enemy>();
-        EnemyScript.PoisonPower = 1;
-        EnemyScript.poisonCoutdown = 3;
+        EnemyScript.setPoison(3, 1);
         cooldown =  1 / fireRate * 60;
     }
 }
