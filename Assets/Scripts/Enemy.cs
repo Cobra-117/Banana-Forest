@@ -35,15 +35,33 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (poisonCoutdown > 0)
+        if (isPoisoned == true)
         {
             curHealth -= PoisonPower* Time.deltaTime;
             poisonCoutdown -= Time.deltaTime;
+            if (poisonCoutdown < 0)
+                stopPoison();
         }
         if (curHealth <= 0)
             Destroy(this.gameObject);
         HealthBar.transform.localScale = new Vector3(0.4f/MaxHealth * curHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
         Move();
+    }
+
+    public void setPoison(float duration, float power)
+    {
+        isPoisoned = true;
+        if (duration > poisonCoutdown)
+            poisonCoutdown = duration;
+        if (power > PoisonPower)
+            PoisonPower = power;
+    }
+
+    public void stopPoison()
+    {
+        isPoisoned = false;
+        poisonCoutdown = 0;
+        PoisonPower = 0;
     }
 
     void Move()
