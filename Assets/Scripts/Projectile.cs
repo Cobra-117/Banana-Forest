@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
     public float speed;
     public int damage = 1;
 
+    private bool hasTouched = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -16,6 +18,9 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (hasTouched == true)
+            return;
+        hasTouched = true;
         Debug.Log("collision");
         if (collision.gameObject.tag == "Enemy")
         {
