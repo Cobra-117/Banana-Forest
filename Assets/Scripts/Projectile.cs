@@ -18,7 +18,11 @@ public class Projectile : MonoBehaviour
     {
         Debug.Log("collision");
         if (collision.gameObject.tag == "Enemy")
-            collision.gameObject.GetComponent<Enemy>().curHealth -= damage;
+        {
+            if (collision.gameObject.transform.parent == null)
+                Debug.Log("Null parent");
+            collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
+        }
         Destroy(this.gameObject);
     }
 
