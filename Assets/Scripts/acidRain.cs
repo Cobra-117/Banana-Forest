@@ -12,7 +12,7 @@ public class acidRain : MonoBehaviour
     public void ActivateRain()
     {
         isRaining = true;
-        Countdown = 15;
+        Countdown = 5;
         ParticleSystem.SetActive(true);
     }
 

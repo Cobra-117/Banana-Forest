@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
             poisonCoutdown = duration;
         if (power > PoisonPower)
             PoisonPower = power;
+        _sprite.GetComponent<SpriteRenderer>().color = new Color(0.5877653f, 0.9150943f, 0.4445977f, 1);
     }
 
     public void stopPoison()
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour
         isPoisoned = false;
         poisonCoutdown = 0;
         PoisonPower = 0;
+        _sprite.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     void Move()
