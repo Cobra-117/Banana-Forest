@@ -136,8 +136,8 @@ MonoBehaviour:
   RotationSpeed: 300
   range: 0
   child: {fileID: 0}
-  debug: 0
   minSpeed: 1.5
+  damage: 1
 --- !u!61 &383137785435479269
 BoxCollider2D:
   m_ObjectHideFlags: 0

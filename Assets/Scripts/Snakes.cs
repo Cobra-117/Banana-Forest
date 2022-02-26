@@ -23,7 +23,7 @@ public class Snakes : MonoBehaviour
     {
         if (collision.gameObject.tag != "Enemy" || cooldown > 0)
             return;
-        Enemy EnemyScript = collision.gameObject.GetComponent<Enemy>();
+        Enemy EnemyScript = collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>();
         EnemyScript.setPoison(3, 1);
         cooldown =  1 / fireRate * 60;
     }

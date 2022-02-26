@@ -10,6 +10,7 @@ public class BananaProjectile : MonoBehaviour
     public float range;
     public GameObject child;
     public float minSpeed;
+    public int damage;
 
     private Vector3 startPos;
     private bool goBack = false;
@@ -108,6 +109,6 @@ public class BananaProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
-            collision.gameObject.GetComponent<Enemy>().curHealth -= 1;
+            collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
     }
 }

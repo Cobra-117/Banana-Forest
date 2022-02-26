@@ -40,10 +40,10 @@ public class acidRain : MonoBehaviour
         foreach (GameObject ennemy in ennemies)
         {
             Debug.Log("Poisonning enemy");
-            if (ennemy.GetComponent<Enemy>() == null)
+            if (ennemy.transform.parent.gameObject.GetComponent<Enemy>() == null)
                 continue;
             //ennemy.GetComponent<Enemy>();
-            ennemy.GetComponent<Enemy>().setPoison(0.1f, 0.7f);
+            ennemy.transform.parent.gameObject.GetComponent<Enemy>().setPoison(0.1f, 0.7f);
             //ennemy.GetComponent<Enemy>().isPoisoned = true;
             //ennemy.GetComponent<Enemy>().PoisonPower = 0.7f;
             //ennemy.GetComponent<Enemy>().poisonCoutdown = 0.1f;

@@ -53,7 +53,7 @@ public class CoconutBomb : MonoBehaviour
             Debug.Log("I");
             if (colliders[i].gameObject.tag == "Enemy")
             {
-                colliders[i].gameObject.GetComponent<Enemy>().curHealth -= 1;
+                colliders[i].gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
                 Debug.Log("Touched");
             }
         }
