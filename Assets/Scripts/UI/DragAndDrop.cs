@@ -8,12 +8,21 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public GameObject Tower;
     public int towerPrice;
     public DistanceMap distanceMapScript;
+    public GameObject mask;
 
     private GLOBAL global;
 
     void Start()
     {
         global = GameObject.FindGameObjectWithTag("Global").GetComponent<GLOBAL>();
+    }
+
+    void Update()
+    {
+        if (global.money < towerPrice)
+            mask.SetActive(true);
+        else
+            mask.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
