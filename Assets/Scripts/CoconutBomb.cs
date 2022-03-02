@@ -13,6 +13,7 @@ public class CoconutBomb : MonoBehaviour
     public GameObject TargetObj;
 
     private float AnimationT;
+    private Vector2 SavedTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +28,18 @@ public class CoconutBomb : MonoBehaviour
         AnimationT += Time.deltaTime;
         //AnimationT = AnimationT % 5;
 
-        if (1 == 1)
+        if (TargetObj != null)
         {
             //transform.Translate(new Vector3(-speed * Time.deltaTime, 0, -speed * Time.deltaTime));
             transform.position = Parabola(StartPoint, TargetObj.transform.position, 2f, AnimationT * speedMultiplier);
+            SavedTarget = new Vector3(TargetObj.transform.position.x, TargetObj.transform.position.y, TargetObj.transform.position.z);
             if (DistToObj(TargetObj) < 0.1f)
+                explode();
+        }
+        else
+        {
+            transform.position = Parabola(StartPoint, SavedTarget, 2f, AnimationT * speedMultiplier);
+            if (DistToTarget(SavedTarget) < 0.1f)
                 explode();
         }
     }
@@ -68,6 +76,22 @@ public class CoconutBomb : MonoBehaviour
 
         dist_x = transform.position.x - obj.transform.position.x;
         dist_y = transform.position.y - obj.transform.position.y;
+        if (dist_x < 0)
+            dist_x = dist_x * (-1);
+        if (dist_y < 0)
+            dist_y = dist_y * (-1);
+        dist = (dist_x + dist_y);
+        return (dist);
+    }
+
+    public float DistToTarget(Vector3 TargetPos)
+    {
+        float dist = 0;
+        float dist_x = 0;
+        float dist_y = 0;
+
+        dist_x = transform.position.x - TargetPos.x;
+        dist_y = transform.position.y - TargetPos.y;
         if (dist_x < 0)
             dist_x = dist_x * (-1);
         if (dist_y < 0)
