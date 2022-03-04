@@ -18,6 +18,7 @@ public class DistanceMap : MonoBehaviour
         distanceMap = new int[tilemap.size.y, tilemap.size.x];
         Debug.Log("origin" + tilemap.origin.ToString());
         Debug.Log(tilemap.size.x.ToString());
+        Debug.Log("size: " + tilemap.size.ToString());
         for (int j = 0; j < tilemap.size.y - 1; j++)
         {
             for (int i = 0; i < tilemap.size.x - 1; i++)
@@ -27,6 +28,7 @@ public class DistanceMap : MonoBehaviour
                 distanceMap[j, i] = 9999;
             }
         }
+        SetDestination();
         indexDistanceMap(new Vector3Int(Destination.x, Destination.y, 0));
         isInit = true;
     }
@@ -56,6 +58,47 @@ public class DistanceMap : MonoBehaviour
             }
         }
         //Debug.Log("x: " + cellpos.x + "y: " + cellpos.y);   
+    }
+
+    private void SetDestination()
+    {
+        BoundsInt bounds = tilemap.cellBounds;
+        TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
+        int bestX = 0;
+
+        TileBase BestTile = null;
+
+        /*foreach (TileBase tile in allTiles)
+        {
+            if (BestTile == null) {
+                BestTile = tile;
+                continue;
+            }
+            if (tile.poo)
+        }*/
+
+        for (int j = 0; j < tilemap.size.y - 1; j++)
+        {
+            Debug.Log("J loop");
+            for (int i = 0; i < tilemap.size.x - 1; i++)
+            {
+                Debug.Log("I loop");
+                if (i < bestX)
+                    continue; 
+                TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
+                Debug.Log("y : " + j.ToString());
+                if (tile == null)
+                    Debug.Log("null tile");
+                Debug.Log("name : " + tile.name);
+                if (tile.name.Contains("path"))
+                {
+                    Debug.Log("found!");
+                    Destination = new Vector2Int(i - 1, j);
+                    bestX = i;
+                    //return;
+                }
+            }
+        }
     }
 
     public Vector3Int distanceMapToTileMap(Vector2Int coords)

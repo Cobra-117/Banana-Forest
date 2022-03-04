@@ -160,8 +160,8 @@ Tilemap:
   - first: {x: -3, y: 0, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 6
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -261,11 +261,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: aa1ac221cc2e3b042923c8c73fb8b8d0, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a65c2f489d43ea34d81563772a97a929, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: a734917a08d04614e97379ea97b0d7c2, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a5b2f6c16fcb7024fb97c2db30419b61, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 6d1565111387a3d4aad3386e6457cc64, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a14d8bab7312b20458f2cf772310c9c7, type: 2}
@@ -282,8 +282,8 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 11d7d75e2f90fcf44be3b63f343326f6, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: ab56ac32324b81c429d1ec24a8135d04, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 16b94a91c5dae50499a47143e15e24c7, type: 3}
   - m_RefCount: 1
@@ -298,7 +298,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: d82b679567437d24c844c161996bb668, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: e9fdc7fcc9770957e8e9990d35666047, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 0a52a850a939d144c82b61a36bec368c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 067b037f3851e304aabda63c89c84285, type: 3}
@@ -411,7 +411,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &9086547777202460448
+--- !u!114 &380232996893722104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
