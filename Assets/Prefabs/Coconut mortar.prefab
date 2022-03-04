@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1079818684834357126}
   m_Layer: 0
   m_Name: Coconut mortar
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

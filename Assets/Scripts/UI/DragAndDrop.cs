@@ -49,6 +49,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         if (distanceMapScript.tilemap.GetTile<TileBase>(cell).name != "grass_03-export")
             return;
+        if (IsATowerHere(cell) == true)
+            return;
         GameObject NewTower = Instantiate(Tower);
         //Mettre une vérification pour savoir si la tile est libre
         //vérifier si on a assez d'argent
@@ -62,5 +64,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         if (price > global.money)
             return false;
         return true;
+    }
+
+    private bool IsATowerHere(Vector3Int pos)
+    {
+        GameObject[] towers = null;
+
+        Vector3 checkedPos = new Vector3(distanceMapScript.tilemap.CellToWorld(pos).x + 0.32f,
+            distanceMapScript.tilemap.CellToWorld(pos).y + 0.32f, 0);
+        towers = GameObject.FindGameObjectsWithTag("Tower");
+        foreach (GameObject _tower in towers)
+        {
+            if (_tower.transform.position == checkedPos)
+                return true;
+        }
+            return false;
     }
 }
