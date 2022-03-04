@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 
 public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
@@ -45,8 +46,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         if (hasEnoughMoney(towerPrice) == false)
             return;
         Debug.Log("On End Drag");
-        GameObject NewTower = Instantiate(Tower);
         Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (distanceMapScript.tilemap.GetTile<TileBase>(cell).name != "grass_03-export")
+            return;
+        GameObject NewTower = Instantiate(Tower);
         //Mettre une vérification pour savoir si la tile est libre
         //vérifier si on a assez d'argent
         NewTower.transform.position = new Vector3 (distanceMapScript.tilemap.CellToWorld(cell).x + 0.32f,
