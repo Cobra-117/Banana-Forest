@@ -13,8 +13,11 @@ public class WaveManager : MonoBehaviour
     public GameObject[] EnnemiesPrefab;
     public DistanceMap distanceMap;
     public Vector3 SpawnPosition;
+    public GLOBAL global;
 
     private float countdown = 0;
+    public float WaveCountdown = 30;
+    public float breakCountdown = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,20 @@ public class WaveManager : MonoBehaviour
     void Update()
     {
         countdown -= Time.deltaTime;
+        if (breakCountdown > 0)
+        {
+            breakCountdown -= Time.deltaTime;
+            return;
+        }
+        WaveCountdown -= Time.deltaTime;
+        if (WaveCountdown <= 0)
+        {
+            breakCountdown = 20;
+            global.curWave += 1;
+            WaveCountdown = 40;
+            //if curWave >= maxWave && plus d'ennemis -> gagné
+            return;
+        }
         if (countdown <= 0)
         {
             countdown = SpawnCooldown;
@@ -45,7 +62,5 @@ public class WaveManager : MonoBehaviour
         else
             Enemy = Instantiate(EnnemiesPrefab[0]);
         Enemy.transform.position = SpawnPosition;
-
-        
     }
 }

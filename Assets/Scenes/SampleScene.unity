@@ -13896,6 +13896,9 @@ MonoBehaviour:
   - {fileID: 4878925315603040707, guid: 52209066265414940b17487301f39dc7, type: 3}
   distanceMap: {fileID: 1971752911}
   SpawnPosition: {x: 0, y: 0, z: 0}
+  global: {fileID: 1312924817}
+  WaveCountdown: 30
+  breakCountdown: 0
 --- !u!4 &1995577820
 Transform:
   m_ObjectHideFlags: 0
