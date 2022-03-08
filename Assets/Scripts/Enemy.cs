@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     public float curHealth;
     Vector2Int currentFinishedTile;
 
+    private GLOBAL global;
+
     void Start()
     {
         distanceMapScript = GameObject.FindGameObjectWithTag("Tilemap").GetComponent<DistanceMap>();
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
         Vector2Int DistanceMapTile = distanceMapScript.TileMapToDistanceMap(TileMapTile);
         currentFinishedTile = new Vector2Int(DistanceMapTile.x -1, DistanceMapTile.y - 1);
         curHealth = MaxHealth;
+        global = GameObject.FindGameObjectWithTag("Global").GetComponent<GLOBAL>();
     }
 
     void Update()
@@ -50,6 +53,11 @@ public class Enemy : MonoBehaviour
         Move();
         if (type == "mecano")
             Heal();
+    }
+
+    private void OnDestroy()
+    {
+        global.score += 100;
     }
 
     void Heal()
