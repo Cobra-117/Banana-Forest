@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Enemy : MonoBehaviour
+public class MecanoBulldozer : MonoBehaviour
 {
     [Header("Stats")]
     public float speed;
-    public float MaxHealth;
-    public float damage;
-    public string type;
+    public float MaxHealth = 10;
 
     [Header("Unity")]
     public DistanceMap distanceMapScript;
@@ -31,7 +29,7 @@ public class Enemy : MonoBehaviour
         tilemap = distanceMapScript.tilemap;
         Vector3Int TileMapTile = tilemap.WorldToCell(transform.position);
         Vector2Int DistanceMapTile = distanceMapScript.TileMapToDistanceMap(TileMapTile);
-        currentFinishedTile = new Vector2Int(DistanceMapTile.x -1, DistanceMapTile.y - 1);
+        currentFinishedTile = new Vector2Int(DistanceMapTile.x - 1, DistanceMapTile.y - 1);
         curHealth = MaxHealth;
     }
 
@@ -39,49 +37,15 @@ public class Enemy : MonoBehaviour
     {
         if (isPoisoned == true)
         {
-            curHealth -= PoisonPower* Time.deltaTime;
+            curHealth -= PoisonPower * Time.deltaTime;
             poisonCoutdown -= Time.deltaTime;
             if (poisonCoutdown < 0)
                 stopPoison();
         }
         if (curHealth <= 0)
             Destroy(this.gameObject);
-        HealthBar.transform.localScale = new Vector3(0.4f/MaxHealth * curHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
+        HealthBar.transform.localScale = new Vector3(0.4f / MaxHealth * curHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
         Move();
-        if (type == "mecano")
-            Heal();
-    }
-
-    void Heal()
-    {
-        GameObject[] enemies = null;
-        float dist;
-        Vector3 local_pos = transform.position;
-
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
-        {
-            dist = DistToObj(enemy);
-            Enemy Enemyscript = enemy.transform.parent.gameObject.GetComponent<Enemy>();
-            if (dist <= 3 && Enemyscript.curHealth < Enemyscript.MaxHealth)
-                Enemyscript.curHealth += 0.3f * Time.deltaTime;
-        }
-    }
-
-    public float DistToObj(GameObject obj)
-    {
-        float dist = 0;
-        float dist_x = 0;
-        float dist_y = 0;
-
-        dist_x = transform.position.x - obj.transform.position.x;
-        dist_y = transform.position.y - obj.transform.position.y;
-        if (dist_x < 0)
-            dist_x = dist_x * (-1);
-        if (dist_y < 0)
-            dist_y = dist_y * (-1);
-        dist = (dist_x + dist_y);
-        return (dist);
     }
 
     public void setPoison(float duration, float power)
@@ -131,7 +95,7 @@ public class Enemy : MonoBehaviour
                     break;
                 case 3:
                     transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0), Space.World);
-                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x,  _sprite.transform.eulerAngles.y, 0);
+                    _sprite.transform.eulerAngles = new Vector3(_sprite.transform.eulerAngles.x, _sprite.transform.eulerAngles.y, 0);
                     currentFinishedTile.x -= 1;
                     break;
                 default:
@@ -223,4 +187,3 @@ public class Enemy : MonoBehaviour
         return direction;
     }
 }
-

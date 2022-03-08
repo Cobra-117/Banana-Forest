@@ -1284,6 +1284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   MaxHealth: 10
+  damage: 0
+  type: 
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
   _sprite: {fileID: 0}
@@ -1465,6 +1467,10 @@ PrefabInstance:
     - target: {fileID: 3229454421884645690, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
       propertyPath: m_Name
       value: Bulldozer-Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229454421884645691, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: type
+      value: mecano
       objectReference: {fileID: 0}
     - target: {fileID: 3229454421884645691, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
       propertyPath: speed
@@ -2601,6 +2607,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bulldozer-RED
       objectReference: {fileID: 0}
+    - target: {fileID: 3229454421884645690, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229454421884645691, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: type
+      value: red
+      objectReference: {fileID: 0}
     - target: {fileID: 3229454421884645691, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
       propertyPath: speed
       value: 1
@@ -2657,6 +2671,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 70dd87705c2dae240a19acf7f31442cc, type: 3}
+    - target: {fileID: 3447268680432155489, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
 --- !u!1 &1130720650
@@ -3413,6 +3431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   MaxHealth: 10
+  damage: 0
+  type: 
   distanceMapScript: {fileID: 1971752911}
   tilemap: {fileID: 1971752910}
   _sprite: {fileID: 0}
