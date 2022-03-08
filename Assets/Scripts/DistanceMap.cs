@@ -10,6 +10,8 @@ public class DistanceMap : MonoBehaviour
     public int[,] distanceMap;
     public bool isInit = false;
     public Vector2Int Destination;
+    public Vector2Int SpawnPosition;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -68,14 +70,6 @@ public class DistanceMap : MonoBehaviour
 
         TileBase BestTile = null;
 
-        /*foreach (TileBase tile in allTiles)
-        {
-            if (BestTile == null) {
-                BestTile = tile;
-                continue;
-            }
-            if (tile.poo)
-        }*/
 
         for (int j = 0; j < tilemap.size.y - 1; j++)
         {
@@ -149,6 +143,7 @@ public class DistanceMap : MonoBehaviour
                     {
                         distanceMap[j, i - 1] = CurrentDistance + 1;
                         indexedTiles = true;
+                        SpawnPosition = new Vector2Int(i, j);
                         //Debug.Log("indexed x - 1");
                     }
 
@@ -158,6 +153,7 @@ public class DistanceMap : MonoBehaviour
                     {
                         distanceMap[j, i + 1] = CurrentDistance + 1;
                         indexedTiles = true;
+                        SpawnPosition = new Vector2Int(i, j);
                         Debug.Log("indexed x + 1");
                     }
 
@@ -167,6 +163,7 @@ public class DistanceMap : MonoBehaviour
                     {
                         distanceMap[j - 1, i] = CurrentDistance + 1;
                         indexedTiles = true;
+                        SpawnPosition = new Vector2Int(i, j);
                         //Debug.Log("indexed y - 1");
                     }
 
@@ -176,6 +173,7 @@ public class DistanceMap : MonoBehaviour
                     {
                         distanceMap[j + 1, i] = CurrentDistance + 1;
                         indexedTiles = true;
+                        SpawnPosition = new Vector2Int(i, j);
                         //Debug.Log("indexed y + 1");
                     }
                     //TileBase tile = tilemap.GetTile<TileBase>(distanceMap);
