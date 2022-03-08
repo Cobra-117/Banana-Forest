@@ -22,6 +22,7 @@ public class WaveManager : MonoBehaviour
         SpawnPosition = distanceMap.tilemap.CellToWorld(distanceMap.distanceMapToTileMap(distanceMap.SpawnPosition));
         SpawnPosition = new Vector3(SpawnPosition.x - 0.5f, SpawnPosition.y + 0.32f, SpawnPosition.z);
         Debug.Log("spawn position :" + SpawnPosition.ToString());
+        Random.seed = System.DateTime.Now.Millisecond;
     }
 
     // Update is called once per frame
@@ -31,14 +32,20 @@ public class WaveManager : MonoBehaviour
         if (countdown <= 0)
         {
             countdown = SpawnCooldown;
-            if (Random.Range(1, 10 - difficulty) == 1)
+            if (Random.Range(1, 11 - difficulty) == 1)
                 SpawnEnemy();
         }
     }
 
     void SpawnEnemy()
     {
-        GameObject Enemy = Instantiate(EnnemiesPrefab[0]);
+        GameObject Enemy = null;
+        if (difficulty > 3 && Random.Range(1, (11 - difficulty) * 2) == 1)
+            Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
+        else
+            Enemy = Instantiate(EnnemiesPrefab[0]);
         Enemy.transform.position = SpawnPosition;
+
+        
     }
 }
