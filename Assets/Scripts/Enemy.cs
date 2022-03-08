@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         global.score += 100;
+        global.money += 100;
     }
 
     void Heal()
@@ -115,11 +116,15 @@ public class Enemy : MonoBehaviour
         Vector3Int TileMapTile = tilemap.WorldToCell(transform.position);
         Vector2Int DistanceMapTile = distanceMapScript.TileMapToDistanceMap(TileMapTile);
         int direction = -1;
+        bool HasMoved = false;
 
         if (FinishTile(DistanceMapTile) == 0)
             direction = chooseMovingDirection(DistanceMapTile);
+        else
+            HasMoved = true;
         if (direction != -1)
         {
+            HasMoved = true;
             switch (direction)
             {
                 case 0:
@@ -145,6 +150,13 @@ public class Enemy : MonoBehaviour
                 default:
                     break;
             }
+        }
+        if (HasMoved == false)
+        {
+            Destroy(this.gameObject);
+            global.score -= 400;
+            global.health -= 1;
+            global.money -= 100;
         }
 
     }

@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour
         SpawnPosition = distanceMap.tilemap.CellToWorld(distanceMap.distanceMapToTileMap(distanceMap.SpawnPosition));
         SpawnPosition = new Vector3(SpawnPosition.x - 0.5f, SpawnPosition.y + 0.32f, SpawnPosition.z);
         Debug.Log("spawn position :" + SpawnPosition.ToString());
-        Random.seed = System.DateTime.Now.Millisecond;
+        Random.InitState(System.DateTime.Now.Millisecond);
     }
 
     // Update is called once per frame
