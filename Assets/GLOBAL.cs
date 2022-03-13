@@ -8,7 +8,8 @@ public class GLOBAL : MonoBehaviour
     public short health = 10;
     public short curWave = 1;
     public short maxWave;
-    public int score;
+    public static int score = 0;
+    public static int currentLevel = 0;
 
     private float ScoreUpdateCoutdown = 0.1f;
 
@@ -20,5 +21,6 @@ public class GLOBAL : MonoBehaviour
             score += 1;
             ScoreUpdateCoutdown = 0.3f;
         }
+        Debug.Log("current level: " + currentLevel.ToString());
     }
 }

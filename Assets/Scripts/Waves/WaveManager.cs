@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (global.health <= 0)
+            Loose();
         countdown -= Time.deltaTime;
         if (breakCountdown > 0)
         {
@@ -52,6 +55,7 @@ public class WaveManager : MonoBehaviour
             if (Random.Range(1, 11 - difficulty) == 1)
                 SpawnEnemy();
         }
+        
     }
 
     void SpawnEnemy()
@@ -62,5 +66,11 @@ public class WaveManager : MonoBehaviour
         else
             Enemy = Instantiate(EnnemiesPrefab[0]);
         Enemy.transform.position = SpawnPosition;
+    }
+
+    void Loose()
+    {
+        SceneManager.LoadScene("Scenes/LostMenu");
+
     }
 }

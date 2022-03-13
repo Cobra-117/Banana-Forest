@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        global.score += 100;
+        GLOBAL.score += 100;
         global.money += 100;
     }
 
@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour
         if (HasMoved == false)
         {
             Destroy(this.gameObject);
-            global.score -= 400;
+            GLOBAL.score -= 400;
             global.health -= 1;
             global.money -= 100;
         }
