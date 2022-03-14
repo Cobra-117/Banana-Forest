@@ -18,5 +18,10 @@ public class GoToScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene("Scenes/Level" + GLOBAL.currentLevel.ToString());
+    }
     
 }

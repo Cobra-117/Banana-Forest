@@ -13767,7 +13767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05e395f55bb4e043bab9d1811ad3918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 7
+  difficulty: 6
   SpawnCooldown: 0.8
   EnnemiesPrefab:
   - {fileID: 3229454421884645690, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
