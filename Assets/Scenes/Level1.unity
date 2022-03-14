@@ -1531,7 +1531,7 @@ RectTransform:
   - {fileID: 1130720651}
   - {fileID: 623497760}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2536,7 +2536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec54e27f50798334a89fb0f491bbdfbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 200
+  money: 300
   health: 10
   curWave: 1
   maxWave: 5
@@ -2553,7 +2553,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1312924819
 MonoBehaviour:
@@ -8699,7 +8699,7 @@ Transform:
   m_Children:
   - {fileID: 1779192537}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820779476
 GameObject:
@@ -8914,7 +8914,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1855024867
 GameObject:
@@ -13767,7 +13767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05e395f55bb4e043bab9d1811ad3918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 6
+  difficulty: 5
   SpawnCooldown: 0.8
   EnnemiesPrefab:
   - {fileID: 3229454421884645690, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
@@ -13776,6 +13776,7 @@ MonoBehaviour:
   distanceMap: {fileID: 1971752911}
   SpawnPosition: {x: 0, y: 0, z: 0}
   global: {fileID: 1312924817}
+  countdown: 0
   WaveCountdown: 30
   breakCountdown: 0
 --- !u!4 &1995577820
@@ -14161,7 +14162,7 @@ Transform:
   m_Children:
   - {fileID: 1971752908}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141485330
 GameObject:
@@ -14307,7 +14308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4360137184265240107, guid: cf9048a888a6e4a4987aad2fd9ed3a06, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4360137184265240107, guid: cf9048a888a6e4a4987aad2fd9ed3a06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14384,7 +14385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878925315603040708, guid: 52209066265414940b17487301f39dc7, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4878925315603040708, guid: 52209066265414940b17487301f39dc7, type: 3}
       propertyPath: m_LocalPosition.x

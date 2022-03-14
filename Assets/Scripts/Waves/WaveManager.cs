@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
     public Vector3 SpawnPosition;
     public GLOBAL global;
 
-    private float countdown = 0;
+    public float countdown = 0;
     public float WaveCountdown = 30;
     public float breakCountdown = 0;
 
@@ -53,9 +53,10 @@ public class WaveManager : MonoBehaviour
         }
         if (countdown <= 0)
         {
-            countdown = SpawnCooldown;
-            if (Random.Range(1, 11 - difficulty) == 1)
-                SpawnEnemy();
+            countdown = SpawnCooldown + (10 - difficulty) * 0.15f ;
+            SpawnEnemy();
+            //if (Random.Range(1, 11 - difficulty) == 1)
+            //SpawnEnemy();
         }
         
     }

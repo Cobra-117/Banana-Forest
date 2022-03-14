@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         GLOBAL.score += 100;
-        global.money += 10;
+        global.money += 5;
     }
 
     void Heal()
