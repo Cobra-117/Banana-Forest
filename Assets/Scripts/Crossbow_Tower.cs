@@ -37,9 +37,11 @@ public class Crossbow_Tower : MonoBehaviour
             _SpriteRenderer.sprite = HighSprite;
             createProjectile();
         }
+        if (_SpriteRenderer.sprite == HighSprite && currentProjectile == null)
+            createProjectile();
         if (closestEnemy == null || DistToObj(closestEnemy) > range)
             closestEnemy = find_closest_enemy();
-        if (closestEnemy != null)
+        if (closestEnemy != null && DistToObj(closestEnemy) <= range)
         {
             lookAtEnemy(closestEnemy);
             if (fireCoutdown <= 0)
@@ -105,6 +107,7 @@ public class Crossbow_Tower : MonoBehaviour
         proj.speed = 10;
         transform.DetachChildren();
         _SpriteRenderer.sprite = LowSprite;
+        currentProjectile = null;
     }
 
     void createProjectile()
