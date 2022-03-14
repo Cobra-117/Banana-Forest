@@ -43,7 +43,7 @@ public class acidRain : MonoBehaviour
             if (ennemy.transform.parent.gameObject.GetComponent<Enemy>() == null)
                 continue;
             //ennemy.GetComponent<Enemy>();
-            ennemy.transform.parent.gameObject.GetComponent<Enemy>().setPoison(0.1f, 0.7f);
+            ennemy.transform.parent.gameObject.GetComponent<Enemy>().setPoison(0.1f, 0.9f);
             //ennemy.GetComponent<Enemy>().isPoisoned = true;
             //ennemy.GetComponent<Enemy>().PoisonPower = 0.7f;
             //ennemy.GetComponent<Enemy>().poisonCoutdown = 0.1f;

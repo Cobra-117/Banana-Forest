@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class RainButton : MonoBehaviour, IPointerDownHandler
 {
     public acidRain _acidRain;
-    public float cooldown = 3;
+    public float cooldown = 30;
     public GameObject mask;
 
     void Update()
@@ -24,6 +24,6 @@ public class RainButton : MonoBehaviour, IPointerDownHandler
             return;
         Debug.Log("clicked");
         _acidRain.ActivateRain();
-        cooldown = 15;
+        cooldown = 30;
     }
 }
