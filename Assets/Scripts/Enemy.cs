@@ -159,7 +159,7 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
             GLOBAL.score -= 400;
             global.health -= 1;
-            global.money -= 20;
+            global.money -= 5;
         }
 
     }

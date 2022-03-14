@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 0.5
-  damage: 1
-  range: 1.5
+  damage: 3
+  range: 2
   StartPoint: {x: 0, y: 0, z: 0}
   TargetObj: {fileID: 0}
 --- !u!58 &-6308315392525996558

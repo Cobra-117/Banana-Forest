@@ -885,7 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tower: {fileID: 1079818684834356859, guid: c899a6eecf945b34783aeb9d72a87154, type: 3}
-  towerPrice: 300
+  towerPrice: 200
   distanceMapScript: {fileID: 1971752911}
   mask: {fileID: 137685767}
 --- !u!1 &519420028
