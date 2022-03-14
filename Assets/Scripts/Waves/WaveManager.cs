@@ -17,7 +17,7 @@ public class WaveManager : MonoBehaviour
     public GLOBAL global;
 
     public float countdown = 0;
-    public float WaveCountdown = 30;
+    public float WaveCountdown = 50;
     public float breakCountdown = 0;
 
     // Start is called before the first frame update
@@ -47,7 +47,10 @@ public class WaveManager : MonoBehaviour
             global.curWave += 1;
             if ((global.curWave == 2 || global.curWave == 4 || global.curWave == 5) && difficulty < 10)
                 difficulty += 1;
-            WaveCountdown = 40;
+            if (global.curWave >= 5)
+                WaveCountdown = 70;
+            else
+                WaveCountdown = 50;
             //if curWave >= maxWave && plus d'ennemis -> gagné
             return;
         }
