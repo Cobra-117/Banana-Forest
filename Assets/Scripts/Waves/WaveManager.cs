@@ -45,6 +45,8 @@ public class WaveManager : MonoBehaviour
         {
             breakCountdown = 20;
             global.curWave += 1;
+            if ((global.curWave == 2 || global.curWave == 4 || global.curWave == 5) && difficulty < 10)
+                difficulty += 1;
             WaveCountdown = 40;
             //if curWave >= maxWave && plus d'ennemis -> gagné
             return;

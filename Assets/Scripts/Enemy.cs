@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         GLOBAL.score += 100;
-        global.money += 100;
+        global.money += 10;
     }
 
     void Heal()
@@ -156,7 +156,7 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
             GLOBAL.score -= 400;
             global.health -= 1;
-            global.money -= 100;
+            global.money -= 20;
         }
 
     }
