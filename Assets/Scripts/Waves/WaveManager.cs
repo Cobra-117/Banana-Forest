@@ -64,7 +64,7 @@ public class WaveManager : MonoBehaviour
     void SpawnEnemy()
     {
         GameObject Enemy = null;
-        if (difficulty > 3 && Random.Range(1, (11 - difficulty) * 2) == 1)
+        if (difficulty > 3 && global.curWave != 1 && Random.Range(0, (110 - (float)difficulty * 10) * 1.45f) < 10)
             Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
         else
             Enemy = Instantiate(EnnemiesPrefab[0]);
