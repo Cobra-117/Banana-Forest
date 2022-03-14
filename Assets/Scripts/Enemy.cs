@@ -72,8 +72,11 @@ public class Enemy : MonoBehaviour
         {
             dist = DistToObj(enemy);
             Enemy Enemyscript = enemy.transform.parent.gameObject.GetComponent<Enemy>();
-            if (dist <= 3 && Enemyscript.curHealth < Enemyscript.MaxHealth)
-                Enemyscript.curHealth += 0.3f * Time.deltaTime;
+            if (dist <= 4 && Enemyscript.curHealth < Enemyscript.MaxHealth)
+            {
+                Enemyscript.curHealth += 0.4f * Time.deltaTime;
+                Debug.Log("healed");
+            }
         }
     }
 
