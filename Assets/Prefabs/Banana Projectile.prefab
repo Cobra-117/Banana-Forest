@@ -132,12 +132,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  speed: 10
+  speed: 12
   RotationSpeed: 300
   range: 0
   child: {fileID: 0}
-  minSpeed: 1.5
-  damage: 1
+  minSpeed: 3
+  damage: 2
 --- !u!61 &383137785435479269
 BoxCollider2D:
   m_ObjectHideFlags: 0
