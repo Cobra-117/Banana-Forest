@@ -8,12 +8,20 @@ public class Projectile : MonoBehaviour
     public int damage = 1;
 
     private bool hasTouched = false;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (speed != 0)
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+        if (hasTouched == true && !audioSource.isPlaying)
+            Destroy(this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +36,8 @@ public class Projectile : MonoBehaviour
                 Debug.Log("Null parent");
             collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
         }
-        Destroy(this.gameObject);
+        audioSource.Play();
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = null;
     }
 
 }

@@ -11,9 +11,11 @@ public class CoconutBomb : MonoBehaviour
 
     public Vector3 StartPoint;
     public GameObject TargetObj;
+    public AudioSource audioSource;
 
     private float AnimationT;
     private Vector2 SavedTarget;
+    private bool hasTouched = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,8 @@ public class CoconutBomb : MonoBehaviour
             if (DistToTarget(SavedTarget) < 0.1f)
                 explode();
         }
+        if (hasTouched == true && !audioSource.isPlaying)
+            Destroy(this.gameObject);
     }
 
     public void rotationToTarget(Vector3 _target)
@@ -65,7 +69,9 @@ public class CoconutBomb : MonoBehaviour
                 Debug.Log("Touched");
             }
         }
-        Destroy(this.gameObject);
+        hasTouched = true;
+        audioSource.Play();
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     public float DistToObj(GameObject obj)
