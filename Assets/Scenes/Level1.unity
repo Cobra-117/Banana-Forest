@@ -515,7 +515,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3fb43c7e3dcca93408ba23a028c6c422, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1144,6 +1144,8 @@ MonoBehaviour:
   towerPrice: 200
   distanceMapScript: {fileID: 1971752911}
   mask: {fileID: 137685767}
+  audioSource: {fileID: 301012433}
+  sound: {fileID: 8300000, guid: 39ce774793fac544d80b573e8b0cc292, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,6 +1893,8 @@ MonoBehaviour:
   towerPrice: 150
   distanceMapScript: {fileID: 1971752911}
   mask: {fileID: 2097628714}
+  audioSource: {fileID: 301012433}
+  sound: {fileID: 8300000, guid: 2ed0eee74ea89754ca66a3dbec865367, type: 3}
 --- !u!1 &831418855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,6 +2216,8 @@ MonoBehaviour:
   towerPrice: 100
   distanceMapScript: {fileID: 1971752911}
   mask: {fileID: 1280609840}
+  audioSource: {fileID: 301012433}
+  sound: {fileID: 8300000, guid: bfc3e04a15059454092eadac17d35637, type: 3}
 --- !u!1 &1130720650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,6 +3796,8 @@ MonoBehaviour:
   towerPrice: 150
   distanceMapScript: {fileID: 1971752911}
   mask: {fileID: 682138171}
+  audioSource: {fileID: 301012433}
+  sound: {fileID: 8300000, guid: 837d76c017bd9d042ba90e2532fa21bb, type: 3}
 --- !u!1 &1750224311
 GameObject:
   m_ObjectHideFlags: 0

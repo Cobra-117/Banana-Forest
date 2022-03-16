@@ -10,6 +10,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public int towerPrice;
     public DistanceMap distanceMapScript;
     public GameObject mask;
+    public AudioSource audioSource;
+    public AudioClip sound;
 
     private GLOBAL global;
 
@@ -57,6 +59,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         NewTower.transform.position = new Vector3 (distanceMapScript.tilemap.CellToWorld(cell).x + 0.32f,
             distanceMapScript.tilemap.CellToWorld(cell).y + 0.32f, 0);
         global.money -= towerPrice;
+        //audioSource.volume = 1;
+        audioSource.PlayOneShot(sound);
+        //audioSource.volume = 0.4f;
     }
 
     public bool hasEnoughMoney(int price)
