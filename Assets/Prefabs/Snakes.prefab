@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 25
   cooldown: 0
+  audioSource: {fileID: 0}
 --- !u!82 &7499399159491608889
 AudioSource:
   m_ObjectHideFlags: 0
@@ -165,7 +166,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4216d2cb176ceb4ab13c21f2f05d8b4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

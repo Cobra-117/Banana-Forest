@@ -14,9 +14,11 @@ public class BananaProjectile : MonoBehaviour
 
     private Vector3 startPos;
     private bool goBack = false;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         lookAtEnemy(Target);
         child = this.gameObject.transform.GetChild(0).gameObject;
         startPos = transform.position;
@@ -109,6 +111,9 @@ public class BananaProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
+        {
             collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
+            audioSource.Play();
+        }
     }
 }

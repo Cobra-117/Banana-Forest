@@ -8,12 +8,26 @@ public class acidRain : MonoBehaviour
     public float Countdown;
     public GameObject ParticleSystem;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
+    }
     // Start is called before the first frame update
     public void ActivateRain()
     {
         isRaining = true;
-        Countdown = 5;
+        Countdown = 7;
         ParticleSystem.SetActive(true);
+        audioSource.Play();
+    }
+
+    void StopRain()
+    {
+        isRaining = false;
+        audioSource.Stop();
+        ParticleSystem.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,8 +38,7 @@ public class acidRain : MonoBehaviour
             Countdown -= Time.deltaTime;
             if (Countdown <= 0)
             {
-                isRaining = false;
-                ParticleSystem.SetActive(false);
+                StopRain();
             }
             poisonEnnemies();
         }
