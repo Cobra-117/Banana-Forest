@@ -25,9 +25,12 @@ public class Enemy : MonoBehaviour
     Vector2Int currentFinishedTile;
 
     private GLOBAL global;
+    private bool isDestroyed = false;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         distanceMapScript = GameObject.FindGameObjectWithTag("Tilemap").GetComponent<DistanceMap>();
         _distanceMap = distanceMapScript.distanceMap;
         tilemap = distanceMapScript.tilemap;
@@ -40,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (isDestroyed == true &&  audioSource.isPlaying == false)
+            Destroy(this.gameObject);
         if (isPoisoned == true)
         {
             curHealth -= PoisonPower* Time.deltaTime;
@@ -154,12 +159,13 @@ public class Enemy : MonoBehaviour
                     break;
             }
         }
-        if (HasMoved == false)
+        if (HasMoved == false && isDestroyed == false)
         {
-            Destroy(this.gameObject);
             GLOBAL.score -= 400;
             global.health -= 1;
             global.money -= 5;
+            audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Angry Monkey"));
+            isDestroyed = true;
         }
 
     }
