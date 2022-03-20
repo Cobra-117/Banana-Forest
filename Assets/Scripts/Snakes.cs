@@ -7,9 +7,12 @@ public class Snakes : MonoBehaviour
     public float fireRate;
     public float cooldown;
     // Start is called before the first frame update
+
+    public AudioSource audioSource;
     void Start()
     {
         cooldown = 1 / fireRate * 60;
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,5 +35,6 @@ public class Snakes : MonoBehaviour
         }
         EnemyScript.setPoison(8, 1f);
         cooldown =  1 / fireRate * 60;
+        audioSource.Play();
     }
 }

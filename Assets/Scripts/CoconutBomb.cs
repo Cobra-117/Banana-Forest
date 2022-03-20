@@ -57,6 +57,8 @@ public class CoconutBomb : MonoBehaviour
 
     void explode()
     {
+        if (hasTouched == true)
+            return;
         Debug.Log("Boom");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y) , range);
         Debug.Log("size: " + colliders.Length.ToString());
