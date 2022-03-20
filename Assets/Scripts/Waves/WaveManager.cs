@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
     [Header("Settings")]
     public int difficulty;
     public float SpawnCooldown;
+    public bool Endless;
 
     [Header("Unity")]
     public GameObject[] EnnemiesPrefab;
@@ -18,7 +19,9 @@ public class WaveManager : MonoBehaviour
 
     public float countdown = 0;
     public float WaveCountdown = 50;
-    public float breakCountdown = 0;
+    public float breakCountdown = 100;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,19 +38,33 @@ public class WaveManager : MonoBehaviour
         if (global.health <= 0)
             Loose();
         countdown -= Time.deltaTime;
-        if (breakCountdown > 0)
+        if (WaveCountdown <= 0 && breakCountdown > 0 && breakCountdown != 100)
         {
             breakCountdown -= Time.deltaTime;
-            return;
+
         }
         WaveCountdown -= Time.deltaTime;
         if (WaveCountdown <= 0)
         {
-            breakCountdown = 20;
-            global.curWave += 1;
+            if (global.curWave == 5 && GameObject.FindGameObjectWithTag("Enemy") == null)
+                SceneManager.LoadScene("Scenes/WonMenu");
+            if (breakCountdown == 100)
+            {
+                breakCountdown = 20;
+                Debug.Log("set to 20");
+            }
+            if (breakCountdown > 0)
+                return;
+            if ((Endless == true || global.curWave < 5))
+            {
+                global.curWave += 1;
+            }
+            breakCountdown = 100;
             if ((global.curWave == 2 || global.curWave == 4 || global.curWave == 5) && difficulty < 10)
+            {
                 difficulty += 1;
-            if (global.curWave >= 5)
+            }
+            if (global.curWave == 5 || (global.curWave > 5 && Endless == true))
                 WaveCountdown = 70;
             else
                 WaveCountdown = 50;
@@ -61,7 +78,6 @@ public class WaveManager : MonoBehaviour
             //if (Random.Range(1, 11 - difficulty) == 1)
             //SpawnEnemy();
         }
-        
     }
 
     void SpawnEnemy()
