@@ -2830,7 +2830,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  audio: {fileID: 301012433}
 --- !u!1 &1397635837
 GameObject:
   m_ObjectHideFlags: 0
@@ -12000,7 +11999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05e395f55bb4e043bab9d1811ad3918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 5
+  difficulty: 2
   SpawnCooldown: 0.8
   Endless: 0
   EnnemiesPrefab:
