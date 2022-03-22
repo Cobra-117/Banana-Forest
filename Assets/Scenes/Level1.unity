@@ -2614,7 +2614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _acidRain: {fileID: 1805370350}
-  cooldown: 3
+  cooldown: 30
   mask: {fileID: 380127739}
 --- !u!1 &1280609840
 GameObject:

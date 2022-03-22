@@ -14,7 +14,7 @@ public class RainButton : MonoBehaviour, IPointerDownHandler
         cooldown -= Time.deltaTime;
         if (cooldown < 0)
             cooldown = 0;
-        mask.transform.localScale = new Vector3(1f * (cooldown / 15), mask.transform.localScale.y, mask.transform.localScale.z);
+        mask.transform.localScale = new Vector3(1f * (cooldown / 30), mask.transform.localScale.y, mask.transform.localScale.z);
         mask.transform.localPosition  = new Vector3((63.5f * mask.transform.localScale.x) - 63.5f, mask.transform.localPosition.y, mask.transform.localPosition.x);
     }
 
