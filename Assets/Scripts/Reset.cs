@@ -15,6 +15,6 @@ public class Reset : MonoBehaviour
 
     private void Start()
     {
-        audio.PlayOneShot((AudioClip)Resources.Load("Sounds/ForwardBird"));
+        //audio.PlayOneShot((AudioClip)Resources.Load("Sounds/ForwardBird"));
     }
 }
