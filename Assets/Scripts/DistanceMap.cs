@@ -82,7 +82,10 @@ public class DistanceMap : MonoBehaviour
                 TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
                 Debug.Log("y : " + j.ToString());
                 if (tile == null)
+                {
                     Debug.Log("null tile");
+                    continue;
+                }
                 Debug.Log("name : " + tile.name);
                 if (tile.name.Contains("path"))
                 {
@@ -132,7 +135,7 @@ public class DistanceMap : MonoBehaviour
                 {
                     TileBase tile = tilemap.GetTile<TileBase>(distanceMapToTileMap(new Vector2Int(i, j)));
                     /*if tile distance is not equal to CurrentDistance, continue*/
-                    if (!tile.name.Contains("path") || distanceMap[j, i] != CurrentDistance)
+                    if (tile == null || !tile.name.Contains("path") || distanceMap[j, i] != CurrentDistance)
                         continue;
                     /*Debug.Log("dist map " + i + " " + j + ""
                         + "is indexed");*/
