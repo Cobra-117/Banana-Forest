@@ -49,7 +49,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             return;
         Debug.Log("On End Drag");
         Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        if (distanceMapScript.tilemap.GetTile<TileBase>(cell).name != "grass_03-export")
+        if (distanceMapScript.tilemap.GetTile<TileBase>(cell).name != "grass_03-export" 
+            && distanceMapScript.tilemap.GetTile<TileBase>(cell).name != "grass_03BUSY")
             return;
         if (IsATowerHere(cell) == true)
             return;
