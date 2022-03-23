@@ -83,11 +83,23 @@ public class WaveManager : MonoBehaviour
     void SpawnEnemy()
     {
         GameObject Enemy = null;
-        if (difficulty > 3 && global.curWave != 1 && Random.Range(0, (110 - (float)difficulty * 10) * 1.45f) < 10)
-            Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
+        if (difficulty == 10)
+        {
+            //Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
+            if (Random.Range(1, 4) != 1)
+                 Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
+             else
+                 Enemy = Instantiate(EnnemiesPrefab[0]);
+            Enemy.transform.position = SpawnPosition;
+        }
         else
-            Enemy = Instantiate(EnnemiesPrefab[0]);
-        Enemy.transform.position = SpawnPosition;
+        {
+            if (difficulty > 3 && global.curWave != 1 && Random.Range(0, (110 - (float)difficulty * 10) * 1.45f) < 10)
+                Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
+            else
+                Enemy = Instantiate(EnnemiesPrefab[0]);
+            Enemy.transform.position = SpawnPosition;
+        }
     }
 
     void Loose()
