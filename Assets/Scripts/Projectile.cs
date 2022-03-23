@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed;
     public int damage = 1;
 
+    private float countDown = 5;
     private bool hasTouched = false;
     private AudioSource audioSource;
 
@@ -18,8 +19,11 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        countDown -= Time.deltaTime;
         if (speed != 0)
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+        if (countDown <= 0)
+            Destroy(this.gameObject);
         if (hasTouched == true && !audioSource.isPlaying)
             Destroy(this.gameObject);
     }
