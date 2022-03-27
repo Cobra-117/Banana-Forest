@@ -46,8 +46,12 @@ public class WaveManager : MonoBehaviour
         WaveCountdown -= Time.deltaTime;
         if (WaveCountdown <= 0)
         {
-            if (Endless == false && global.curWave == 5 && GameObject.FindGameObjectWithTag("Enemy") == null)
-                SceneManager.LoadScene("Scenes/WonMenu");
+            if (Endless == false && global.curWave == 5 && GameObject.FindGameObjectWithTag("Enemy") == null) {
+                if (GLOBAL.currentLevel == 6)
+                    SceneManager.LoadScene("Scenes/FinalMenu");
+                else 
+                    SceneManager.LoadScene("Scenes/WonMenu");
+            }
             if (breakCountdown == 100)
             {
                 breakCountdown = 20;
