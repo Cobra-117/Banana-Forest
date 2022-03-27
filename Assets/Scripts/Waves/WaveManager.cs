@@ -21,8 +21,6 @@ public class WaveManager : MonoBehaviour
     public float WaveCountdown = 50;
     public float breakCountdown = 100;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +111,5 @@ public class WaveManager : MonoBehaviour
     void Loose()
     {
         SceneManager.LoadScene("Scenes/LostMenu");
-
     }
 }
