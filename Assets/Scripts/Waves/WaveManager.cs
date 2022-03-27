@@ -46,7 +46,7 @@ public class WaveManager : MonoBehaviour
         WaveCountdown -= Time.deltaTime;
         if (WaveCountdown <= 0)
         {
-            if (global.curWave == 5 && GameObject.FindGameObjectWithTag("Enemy") == null)
+            if (Endless == false && global.curWave == 5 && GameObject.FindGameObjectWithTag("Enemy") == null)
                 SceneManager.LoadScene("Scenes/WonMenu");
             if (breakCountdown == 100)
             {
@@ -60,7 +60,11 @@ public class WaveManager : MonoBehaviour
                 global.curWave += 1;
             }
             breakCountdown = 100;
-            if ((global.curWave == 2 || global.curWave == 4 || global.curWave == 5) && difficulty < 10)
+            if (Endless == false && (global.curWave == 2 || global.curWave == 4 || global.curWave == 5) && difficulty < 10)
+            {
+                difficulty += 1;
+            }
+            else if (difficulty < 10 /*&& global.curWave % 2 == 0*/)
             {
                 difficulty += 1;
             }
