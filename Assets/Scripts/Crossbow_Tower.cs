@@ -50,7 +50,6 @@ public class Crossbow_Tower : MonoBehaviour
                 fireCoutdown = 1 / fireRate * 60;
             }
         }
-            //transform.LookAt( new Vector3(closestEnemy.transform.position.x, closestEnemy.transform.position.y, 0));
     }
 
     void lookAtEnemy(GameObject Enemy)
@@ -71,7 +70,6 @@ public class Crossbow_Tower : MonoBehaviour
         ennemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in ennemies)
         {
-            Debug.Log("Ennemy");
             cur_dist = DistToObj(enemy);
             if (cur_dist < bs_dist && cur_dist <= range)
             {

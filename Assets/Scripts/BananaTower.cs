@@ -18,7 +18,6 @@ public class BananaTower : MonoBehaviour
     void Start()
     {
         closestEnemy = find_closest_enemy();
-        //fireCoutdown = 1 / fireRate * 60;
     }
 
     // Update is called once per frame
@@ -76,7 +75,6 @@ public class BananaTower : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Boom");
         GameObject banana = Instantiate(projectilePrefab);
         BananaProjectile script = banana.GetComponent<BananaProjectile>();
 

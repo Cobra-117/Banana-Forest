@@ -47,7 +47,6 @@ public class BananaProjectile : MonoBehaviour
                 if (DistToTarget(startPos) >= range)
                 {
                     goBack = true;
-                    Debug.Log("go back true");
                 }
             }
             else
@@ -102,7 +101,6 @@ public class BananaProjectile : MonoBehaviour
 
     public void lookAtEnemy(GameObject Enemy)
     {
-        Debug.Log("looked at");
         Vector3 v_diff = (Enemy.transform.position - transform.position);
         float atan2 = Mathf.Atan2(v_diff.y, v_diff.x);
         transform.rotation = Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg + 180);

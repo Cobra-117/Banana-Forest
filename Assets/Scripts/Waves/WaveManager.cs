@@ -21,12 +21,12 @@ public class WaveManager : MonoBehaviour
     public float countdown = 0;
     public float WaveCountdown = 50;
     public float breakCountdown = 100;
+
     // Start is called before the first frame update
     void Start()
     {
         SpawnPosition = distanceMap.tilemap.CellToWorld(distanceMap.distanceMapToTileMap(distanceMap.SpawnPosition));
         SpawnPosition = new Vector3(SpawnPosition.x - 0.5f, SpawnPosition.y + 0.32f, SpawnPosition.z);
-        Debug.Log("spawn position :" + SpawnPosition.ToString());
         Random.InitState(System.DateTime.Now.Millisecond);
     }
 
@@ -58,7 +58,6 @@ public class WaveManager : MonoBehaviour
             if (breakCountdown == 100)
             {
                 breakCountdown = 20;
-                Debug.Log("set to 20");
             }
             if (breakCountdown > 0)
                 return;
@@ -71,7 +70,7 @@ public class WaveManager : MonoBehaviour
             {
                 difficulty += 1;
             }
-            else if (difficulty < 10 /*&& global.curWave % 2 == 0*/)
+            else if (difficulty < 10)
             {
                 difficulty += 1;
             }
@@ -79,15 +78,12 @@ public class WaveManager : MonoBehaviour
                 WaveCountdown = 70;
             else
                 WaveCountdown = 50;
-            //if curWave >= maxWave && plus d'ennemis -> gagné
             return;
         }
         if (countdown <= 0)
         {
             countdown = SpawnCooldown + (10 - difficulty) * 0.15f ;
             SpawnEnemy();
-            //if (Random.Range(1, 11 - difficulty) == 1)
-            //SpawnEnemy();
         }
     }
 
@@ -96,7 +92,6 @@ public class WaveManager : MonoBehaviour
         GameObject Enemy = null;
         if (difficulty == 10)
         {
-            //Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
             if (Random.Range(1, 4) != 1)
                  Enemy = Instantiate(EnnemiesPrefab[Random.Range(1, 3)]);
              else

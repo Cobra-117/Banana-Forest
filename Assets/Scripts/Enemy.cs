@@ -80,7 +80,6 @@ public class Enemy : MonoBehaviour
             if (dist <= 4 && Enemyscript.curHealth < Enemyscript.MaxHealth)
             {
                 Enemyscript.curHealth += 0.4f * Time.deltaTime;
-                Debug.Log("healed");
             }
         }
     }

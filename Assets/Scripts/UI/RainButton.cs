@@ -22,7 +22,6 @@ public class RainButton : MonoBehaviour, IPointerDownHandler
     {
         if (cooldown > 0)
             return;
-        Debug.Log("clicked");
         _acidRain.ActivateRain();
         cooldown = 30;
     }

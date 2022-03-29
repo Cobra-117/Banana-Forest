@@ -32,12 +32,9 @@ public class Projectile : MonoBehaviour
     {
         if (hasTouched == true)
             return;
-        Debug.Log("collision");
         if (collision.gameObject.tag == "Enemy")
         {
             hasTouched = true;
-            if (collision.gameObject.transform.parent == null)
-                Debug.Log("Null parent");
             collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
         }
         audioSource.Play();

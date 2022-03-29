@@ -28,11 +28,9 @@ public class CoconutBomb : MonoBehaviour
     void Update()
     {
         AnimationT += Time.deltaTime;
-        //AnimationT = AnimationT % 5;
 
         if (TargetObj != null)
         {
-            //transform.Translate(new Vector3(-speed * Time.deltaTime, 0, -speed * Time.deltaTime));
             transform.position = Parabola(StartPoint, TargetObj.transform.position, 2f, AnimationT * speedMultiplier);
             SavedTarget = new Vector3(TargetObj.transform.position.x, TargetObj.transform.position.y, TargetObj.transform.position.z);
             if (DistToObj(TargetObj) < 0.1f)
@@ -59,16 +57,12 @@ public class CoconutBomb : MonoBehaviour
     {
         if (hasTouched == true)
             return;
-        Debug.Log("Boom");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y) , range);
-        Debug.Log("size: " + colliders.Length.ToString());
         for (int i = 0; i < colliders.Length; i++)
         {
-            Debug.Log("I");
             if (colliders[i].gameObject.tag == "Enemy")
             {
                 colliders[i].gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
-                Debug.Log("Touched");
             }
         }
         hasTouched = true;

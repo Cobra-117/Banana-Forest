@@ -24,13 +24,11 @@ public class Snakes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger entered");
         if (collision.gameObject.tag != "Enemy" || cooldown > 0)
             return;
         Enemy EnemyScript = collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>();
         if (EnemyScript.isPoisoned == true)
         {
-            Debug.Log("alreay poisonned");
             return;
         }
         EnemyScript.setPoison(8, 1f);

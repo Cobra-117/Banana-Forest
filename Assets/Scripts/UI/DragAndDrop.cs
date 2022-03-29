@@ -30,12 +30,12 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(this.gameObject.name + " Was Clicked.");
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("Drag");
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -47,7 +47,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         if (hasEnoughMoney(towerPrice) == false)
             return;
-        Debug.Log("On End Drag");
         Vector3Int cell = distanceMapScript.tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         if (distanceMapScript.tilemap.GetTile<TileBase>(cell).name != "grass_03-export" 
             && distanceMapScript.tilemap.GetTile<TileBase>(cell).name != "grass_03BUSY")
@@ -55,14 +54,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         if (IsATowerHere(cell) == true)
             return;
         GameObject NewTower = Instantiate(Tower);
-        //Mettre une vérification pour savoir si la tile est libre
-        //vérifier si on a assez d'argent
         NewTower.transform.position = new Vector3 (distanceMapScript.tilemap.CellToWorld(cell).x + 0.32f,
             distanceMapScript.tilemap.CellToWorld(cell).y + 0.32f, 0);
         global.money -= towerPrice;
-        //audioSource.volume = 1;
         audioSource.PlayOneShot(sound);
-        //audioSource.volume = 0.4f;
     }
 
     public bool hasEnoughMoney(int price)

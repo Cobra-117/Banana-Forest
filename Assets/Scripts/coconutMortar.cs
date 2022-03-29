@@ -18,7 +18,6 @@ public class coconutMortar : MonoBehaviour
     void Start()
     {
         closestEnemy = find_closest_enemy();
-        //fireCoutdown = 1 / fireRate * 60;
     }
 
     // Update is called once per frame
@@ -76,7 +75,6 @@ public class coconutMortar : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Boom");
         GameObject bomb = Instantiate(projectilePrefab);
         CoconutBomb script = bomb.GetComponent<CoconutBomb>();
 

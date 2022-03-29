@@ -21,6 +21,5 @@ public class GLOBAL : MonoBehaviour
             score += 1;
             ScoreUpdateCoutdown = 0.3f;
         }
-        Debug.Log("current level: " + currentLevel.ToString());
     }
 }
