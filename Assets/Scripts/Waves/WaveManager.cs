@@ -17,10 +17,10 @@ public class WaveManager : MonoBehaviour
     public Vector3 SpawnPosition;
     public GLOBAL global;
 
+    public float BeginCountdown = 3;
     public float countdown = 0;
     public float WaveCountdown = 50;
     public float breakCountdown = 100;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +33,11 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (BeginCountdown > 0)
+        {
+            BeginCountdown -= Time.deltaTime;
+            return;
+        }
         if (global.health <= 0)
             Loose();
         countdown -= Time.deltaTime;
