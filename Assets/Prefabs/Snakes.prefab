@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce530fff9c533c2499d3f9c16552403d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 25
+  fireRate: 30
   cooldown: 0
   audioSource: {fileID: 0}
 --- !u!82 &7499399159491608889

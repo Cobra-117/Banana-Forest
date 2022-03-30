@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 3
-  fireRate: 60
+  fireRate: 70
   projectilePrefab: {fileID: 8837377575758796854, guid: e80488692828e3d48aeb1e2a3a20103d, type: 3}
   currentProjectile: {fileID: 5313288683613515123}
   HighSprite: {fileID: 21300000, guid: 035156ed7ca4a5547ba0ec9d4643b649, type: 3}

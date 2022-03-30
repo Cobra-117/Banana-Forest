@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _acidRain: {fileID: 1805370350}
-  cooldown: 30
+  cooldown: 20
   mask: {fileID: 380127739}
 --- !u!1 &1280609840
 GameObject:
@@ -11270,7 +11270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 6
-  SpawnCooldown: 0.8
+  SpawnCooldown: 0.9
   Endless: 0
   EnnemiesPrefab:
   - {fileID: 3229454421884645690, guid: 11210705e12e3b54e84e94de1b4adbbb, type: 3}
