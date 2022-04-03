@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             hasTouched = true;
-            collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= damage;
+            collision.gameObject.transform.parent.gameObject.GetComponent<Enemy>().curHealth -= 1.5f;
         }
         audioSource.Play();
         this.gameObject.GetComponent<SpriteRenderer>().sprite = null;
